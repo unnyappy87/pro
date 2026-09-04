@@ -137,4 +137,28 @@ function initHorizontalGallery() {
   });
 }
 
+function initAboutLottie() {
+  const aboutLottie = document.querySelector("dotlottie-wc.about");
+
+  if (!aboutLottie) {
+    return;
+  }
+
+  const startAnimation = () => {
+    aboutLottie.setAttribute("autoplay", "");
+    aboutLottie.setAttribute("loop", "");
+
+    if (typeof aboutLottie.play === "function") {
+      aboutLottie.play();
+    }
+  };
+
+  if (window.customElements && window.customElements.whenDefined) {
+    window.customElements.whenDefined("dotlottie-wc").then(startAnimation);
+  } else {
+    window.addEventListener("load", startAnimation, { once: true });
+  }
+}
+
 initHorizontalGallery();
+initAboutLottie();
