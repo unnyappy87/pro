@@ -495,6 +495,26 @@ button.button {
   line-height: 58px;
 }
 
+.section-heading__title-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.section-heading__title-row .section-heading__title {
+  margin-bottom: 0;
+}
+
+dotlottie-wc.about {
+  display: block;
+  width: 78px;
+  height: 78px;
+  flex: 0 0 auto;
+  transform: translateY(-2px);
+}
+
 .section-heading__description {
   max-width: 100%;
   margin: 0;
@@ -1453,6 +1473,11 @@ button.button {
     line-height: 48px;
   }
 
+  dotlottie-wc.about {
+    width: 64px;
+    height: 64px;
+  }
+
   .hero-section__description {
     font-size: 22px;
     line-height: 30px;
@@ -1554,6 +1579,15 @@ button.button {
   .contact-panel__title {
     font-size: 32px;
     line-height: 40px;
+  }
+
+  .section-heading__title-row {
+    gap: 8px;
+  }
+
+  dotlottie-wc.about {
+    width: 52px;
+    height: 52px;
   }
 
   .hero-section__badge {
