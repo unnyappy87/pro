@@ -509,11 +509,11 @@ button.button {
 
 dotlottie-wc.about {
   display: block;
-  width: 112px;
-  height: 112px;
+  width: 156px;
+  height: 156px;
   flex: 0 0 auto;
   pointer-events: none;
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 }
 
 .section-heading__description {
@@ -1475,8 +1475,8 @@ dotlottie-wc.about {
   }
 
   dotlottie-wc.about {
-    width: 86px;
-    height: 86px;
+    width: 124px;
+    height: 124px;
   }
 
   .hero-section__description {
@@ -1587,8 +1587,8 @@ dotlottie-wc.about {
   }
 
   dotlottie-wc.about {
-    width: 68px;
-    height: 68px;
+    width: 96px;
+    height: 96px;
   }
 
   .hero-section__badge {
