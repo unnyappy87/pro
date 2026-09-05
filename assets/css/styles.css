@@ -589,6 +589,7 @@ button.button {
 
 .horizontal-scroll__track {
   display: flex;
+  align-items: center;
   width: max-content;
   gap: 32px;
   will-change: transform;
@@ -601,24 +602,29 @@ button.button {
 
 .projects-section__track .project-panel,
 .personal-section__track .personal-card {
-  flex: 0 0 min(1140px, calc(100vw - 80px));
-  transform: scale(1);
-  transform-origin: center center;
-  transition: transform 320ms ease, opacity 320ms ease, box-shadow 320ms ease;
+  width: min(1040px, calc(100vw - 160px));
+  min-height: 520px;
+  flex: 0 0 min(1040px, calc(100vw - 160px));
+  opacity: 1;
+  transition: width 360ms ease, flex-basis 360ms ease, min-height 360ms ease, opacity 320ms ease, box-shadow 320ms ease;
 }
 
 .projects-section__track:hover .project-panel,
 .personal-section__track:hover .personal-card {
-  opacity: 0.78;
-  transform: scale(0.94);
+  width: min(920px, calc(100vw - 260px));
+  min-height: 480px;
+  flex-basis: min(920px, calc(100vw - 260px));
+  opacity: 0.72;
 }
 
 .projects-section__track .project-panel:hover,
 .personal-section__track .personal-card:hover {
   z-index: 2;
+  width: min(1240px, calc(100vw - 64px));
+  min-height: 610px;
+  flex-basis: min(1240px, calc(100vw - 64px));
   opacity: 1;
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.14);
-  transform: scale(1.04);
 }
 
 .project-panel__header {
@@ -1247,26 +1253,29 @@ button.button {
 .gallery-section__grid img {
   position: relative;
   display: block;
-  width: clamp(280px, 20vw, 360px);
-  height: clamp(440px, 31vw, 560px);
+  width: clamp(240px, 17vw, 310px);
+  height: clamp(380px, 27vw, 500px);
+  flex: 0 0 clamp(240px, 17vw, 310px);
   border-radius: 13px;
   object-fit: cover;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
-  transform: scale(1);
-  transform-origin: center center;
-  transition: transform 320ms ease, opacity 320ms ease, box-shadow 320ms ease;
+  transition: width 360ms ease, height 360ms ease, flex-basis 360ms ease, opacity 320ms ease, box-shadow 320ms ease;
 }
 
 .gallery-section__grid:hover img {
+  width: clamp(200px, 14vw, 260px);
+  height: clamp(320px, 23vw, 430px);
+  flex-basis: clamp(200px, 14vw, 260px);
   opacity: 0.72;
-  transform: scale(0.9);
 }
 
 .gallery-section__grid img:hover {
   z-index: 2;
+  width: clamp(360px, 28vw, 500px);
+  height: clamp(500px, 39vw, 700px);
+  flex-basis: clamp(360px, 28vw, 500px);
   opacity: 1;
   box-shadow: 0 24px 52px rgba(0, 0, 0, 0.38);
-  transform: scale(1.14);
 }
 
 .site-footer {
@@ -1458,15 +1467,19 @@ button.button {
 
   .projects-section__track .project-panel,
   .personal-section__track .personal-card {
+    width: min(720px, calc(100vw - 48px));
     flex-basis: min(720px, calc(100vw - 48px));
+    min-height: auto;
   }
 
   .projects-section__track:hover .project-panel,
   .projects-section__track .project-panel:hover,
   .personal-section__track:hover .personal-card,
   .personal-section__track .personal-card:hover {
+    width: min(720px, calc(100vw - 48px));
+    flex-basis: min(720px, calc(100vw - 48px));
+    min-height: auto;
     opacity: 1;
-    transform: none;
   }
 
   .certificate-section__container {
@@ -1596,8 +1609,10 @@ button.button {
 
   .gallery-section__grid:hover img,
   .gallery-section__grid img:hover {
+    width: 220px;
+    height: 346px;
+    flex-basis: 220px;
     opacity: 1;
-    transform: none;
   }
 
   .gallery-section__viewport {
