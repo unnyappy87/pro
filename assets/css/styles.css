@@ -1322,9 +1322,9 @@ button.button {
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.44);
 }
 
-body.is-flip-modal-open .projects-section__track .project-panel:not(.is-flip-active),
-body.is-flip-modal-open .personal-section__track .personal-card:not(.is-flip-active),
-body.is-flip-modal-open .gallery-section__grid img:not(.is-flip-active) {
+body.is-frame-dimmed .projects-section__track .project-panel:not(.is-flip-active),
+body.is-frame-dimmed .personal-section__track .personal-card:not(.is-flip-active),
+body.is-frame-dimmed .gallery-section__grid img:not(.is-flip-active) {
   opacity: 0.34;
   transform: scale(0.86);
 }

@@ -270,6 +270,7 @@ function initFlipModal() {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     setScrollLocked(true);
+    document.body.classList.add("is-frame-dimmed");
     isAnimating = true;
 
     gsap.to(modal, {
@@ -304,6 +305,7 @@ function initFlipModal() {
     }
 
     activePlaceholder.remove();
+    document.body.classList.remove("is-frame-dimmed");
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     isAnimating = true;
@@ -315,8 +317,8 @@ function initFlipModal() {
     });
 
     Flip.from(state, {
-      duration: 0.7,
-      ease: "power4.inOut",
+      duration: 0.86,
+      ease: "power3.inOut",
       absolute: true,
       scale: true,
       nested: true,
