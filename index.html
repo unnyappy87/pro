@@ -7,9 +7,10 @@
     <title>Lee Suji Portfolio Page</title>
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
     <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
   </head>
-  <body>
+  <body data-scroll-container>
     <a class="skip-link" href="#home">본문으로 이동</a>
     <header class="site-header" data-node-id="6985:2409">
       <div class="site-header__backdrop" aria-hidden="true"></div>
@@ -78,15 +79,7 @@
         <div class="section-container">
           <div class="section-heading">
             <p class="section-heading__eyebrow">PORTFOLIO PROFILE</p>
-            <div class="section-heading__title-row">
-              <h2 class="section-heading__title" id="about-title">About Me</h2>
-              <dotlottie-wc
-                class="about"
-                src="./lottie/Monitor%20creative%203d.lottie"
-                autoplay
-                loop
-              ></dotlottie-wc>
-            </div>
+            <h2 class="section-heading__title" id="about-title">About Me</h2>
             <p class="section-heading__description"><span class="font-poppins">UX</span>/<span class="font-poppins">UI</span> 디자인과 영상 제작을 거쳐, 지금은 그 감각을 코드로 옮기는 웹퍼블리셔 이수지입니다.</p>
             <img class="section-heading__divider" src="./assets/icons/section-divider.svg" alt="" aria-hidden="true">
           </div>
@@ -339,21 +332,36 @@
           <h2 class="skills-section__title" id="skills-title">Skills 디자인, 웹 퍼블리싱, 영상 제작에 필요한 다양한 툴과 기술을 활용할 수 있습니다.</h2>
           <div class="skills-grid" data-node-id="6985:2572">
             <article class="skill-card">
-              <img src="./assets/images/skill-design.png" alt="Design skill illustration" loading="lazy" decoding="async">
+              <dotlottie-wc
+                class="skill-card__lottie"
+                src="./lottie/Monitor%20creative%203d.lottie"
+                autoplay
+                loop
+              ></dotlottie-wc>
               <span class="badge skill-card__badge">Design</span>
               <h3>Design</h3>
               <p>화면의 구조와 시각적인 요소를 설계합니다.</p>
               <span class="skill-card__tools">Figma · Photoshop · Illustrator</span>
             </article>
             <article class="skill-card">
-              <img src="./assets/images/skill-web-publishing.png" alt="Web publishing skill illustration" loading="lazy" decoding="async">
+              <dotlottie-wc
+                class="skill-card__lottie"
+                src="./lottie/coding%20pro.lottie"
+                autoplay
+                loop
+              ></dotlottie-wc>
               <span class="badge skill-card__badge">Web</span>
               <h3>Web Publishing</h3>
               <p>디자인을 반응형 웹 화면으로 구현합니다.</p>
               <span class="skill-card__tools skill-card__tools--small">HTML · CSS · JavaScript · React · Tailwind CSS</span>
             </article>
             <article class="skill-card">
-              <img src="./assets/images/skill-motion-video.png" alt="Motion and video skill illustration" loading="lazy" decoding="async">
+              <dotlottie-wc
+                class="skill-card__lottie"
+                src="./lottie/video%20clip%20editing%20timeline%20window%20in%20the%20program.lottie"
+                autoplay
+                loop
+              ></dotlottie-wc>
               <span class="badge skill-card__badge">Motion</span>
               <h3>Motion &amp; Video</h3>
               <p>장면의 흐름과 리듬을 고려해 영상을 편집합니다.</p>
@@ -412,6 +420,7 @@
 
     <script src="./assets/js/vendor/gsap.min.js"></script>
     <script src="./assets/js/vendor/scrolltrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
     <script src="./assets/js/main.js"></script>
   </body>

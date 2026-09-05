@@ -495,27 +495,6 @@ button.button {
   line-height: 58px;
 }
 
-.section-heading__title-row {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 8px;
-}
-
-.section-heading__title-row .section-heading__title {
-  margin-bottom: 0;
-}
-
-dotlottie-wc.about {
-  display: block;
-  width: 156px;
-  height: 156px;
-  flex: 0 0 auto;
-  pointer-events: none;
-  transform: translateY(-6px);
-}
-
 .section-heading__description {
   max-width: 100%;
   margin: 0;
@@ -601,6 +580,28 @@ dotlottie-wc.about {
 
 .project-panel:first-of-type {
   margin-top: 0;
+}
+
+.horizontal-scroll {
+  width: 100%;
+  overflow: hidden;
+}
+
+.horizontal-scroll__track {
+  display: flex;
+  width: max-content;
+  gap: 32px;
+  will-change: transform;
+}
+
+.projects-section__viewport,
+.personal-section__viewport {
+  margin-top: 32px;
+}
+
+.projects-section__track .project-panel,
+.personal-section__track .personal-card {
+  flex: 0 0 min(1140px, calc(100vw - 80px));
 }
 
 .project-panel__header {
@@ -1031,14 +1032,14 @@ dotlottie-wc.about {
   background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
-.skill-card img {
+.skill-card__lottie {
   display: block;
   width: 252px;
   height: 168px;
   margin-bottom: 30px;
   border: 1.5px solid var(--color-skill-border);
   border-radius: 12px;
-  object-fit: cover;
+  background: var(--color-bg-white);
 }
 
 .skill-card__badge {
@@ -1385,7 +1386,6 @@ dotlottie-wc.about {
   }
 
   .hero-section__container,
-  .project-panel__content,
   .skills-grid {
     flex-wrap: wrap;
   }
@@ -1405,6 +1405,10 @@ dotlottie-wc.about {
     padding: 32px 24px;
   }
 
+  .project-panel__content {
+    flex-wrap: wrap;
+  }
+
   .project-panel__image,
   .project-panel__specs {
     width: 100%;
@@ -1415,6 +1419,11 @@ dotlottie-wc.about {
     grid-template-columns: 1fr;
     width: min(720px, 100%);
     gap: 28px;
+  }
+
+  .projects-section__track .project-panel,
+  .personal-section__track .personal-card {
+    flex-basis: min(720px, calc(100vw - 48px));
   }
 
   .certificate-section__container {
@@ -1472,11 +1481,6 @@ dotlottie-wc.about {
   .gallery-section h2 {
     font-size: 38px;
     line-height: 48px;
-  }
-
-  dotlottie-wc.about {
-    width: 124px;
-    height: 124px;
   }
 
   .hero-section__description {
@@ -1561,6 +1565,13 @@ dotlottie-wc.about {
     padding: 0 24px;
   }
 
+  .gallery-section__pattern {
+    opacity: 1;
+    min-width: 720px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .contact-panel__title {
     font-size: 38px;
   }
@@ -1580,15 +1591,6 @@ dotlottie-wc.about {
   .contact-panel__title {
     font-size: 32px;
     line-height: 40px;
-  }
-
-  .section-heading__title-row {
-    gap: 8px;
-  }
-
-  dotlottie-wc.about {
-    width: 96px;
-    height: 96px;
   }
 
   .hero-section__badge {
@@ -1646,7 +1648,7 @@ dotlottie-wc.about {
     margin: 8px auto 12px;
   }
 
-  .skill-card img,
+  .skill-card__lottie,
   .skill-card h3,
   .skill-card p,
   .skill-card__tools {

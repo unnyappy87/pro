@@ -92,35 +92,140 @@ if (window.location.hash) {
   setActiveNavLink("home");
 }
 
-function initHorizontalGallery() {
-  const section = document.querySelector(".gallery-section");
-  const viewport = document.querySelector(".gallery-section__viewport");
-  const track = document.querySelector(".gallery-section__grid");
+function createHorizontalTrack(sectionSelector, itemSelector, viewportClass, trackClass) {
+  const section = document.querySelector(sectionSelector);
 
-  if (!section || !viewport || !track || prefersReducedMotion.matches) {
+  if (!section || section.querySelector(`.${viewportClass}`)) {
+    return section;
+  }
+
+  const items = Array.from(section.querySelectorAll(itemSelector));
+
+  if (items.length < 2) {
+    return section;
+  }
+
+  const viewport = document.createElement("div");
+  const track = document.createElement("div");
+
+  viewport.className = `horizontal-scroll ${viewportClass}`;
+  track.className = `horizontal-scroll__track ${trackClass}`;
+
+  items[0].before(viewport);
+  viewport.append(track);
+  items.forEach((item) => track.append(item));
+
+  return section;
+}
+
+function initSmoothScroll() {
+  const scrollContainer = document.querySelector("[data-scroll-container]");
+
+  if (!scrollContainer || prefersReducedMotion.matches || !window.LocomotiveScroll) {
+    return null;
+  }
+
+  const locomotive = new LocomotiveScroll({
+    el: scrollContainer,
+    smooth: true,
+    tablet: { smooth: false },
+    smartphone: { smooth: false },
+  });
+
+  locomotive.on("scroll", ScrollTrigger.update);
+
+  ScrollTrigger.scrollerProxy(scrollContainer, {
+    scrollTop(value) {
+      if (arguments.length) {
+        locomotive.scrollTo(value, { duration: 0, disableLerp: true });
+      }
+
+      return locomotive.scroll.instance.scroll.y;
+    },
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+    pinType: scrollContainer.style.transform ? "transform" : "fixed",
+  });
+
+  ScrollTrigger.addEventListener("refresh", () => locomotive.update());
+
+  return { locomotive, scrollContainer };
+}
+
+function initHorizontalSections(scrollContext) {
+  createHorizontalTrack(
+    ".projects-section",
+    ".project-panel",
+    "projects-section__viewport",
+    "projects-section__track"
+  );
+  createHorizontalTrack(
+    ".personal-section",
+    ".personal-card",
+    "personal-section__viewport",
+    "personal-section__track"
+  );
+
+  const groups = [
+    {
+      section: document.querySelector(".projects-section"),
+      viewport: document.querySelector(".projects-section__viewport"),
+      track: document.querySelector(".projects-section__track"),
+    },
+    {
+      section: document.querySelector(".personal-section"),
+      viewport: document.querySelector(".personal-section__viewport"),
+      track: document.querySelector(".personal-section__track"),
+    },
+    {
+      section: document.querySelector(".gallery-section"),
+      viewport: document.querySelector(".gallery-section__viewport"),
+      track: document.querySelector(".gallery-section__grid"),
+    },
+  ];
+
+  if (prefersReducedMotion.matches) {
     return;
   }
 
   if (!window.gsap || !window.ScrollTrigger) {
-    viewport.style.overflowX = "auto";
+    groups.forEach(({ viewport }) => {
+      if (viewport) {
+        viewport.style.overflowX = "auto";
+      }
+    });
     return;
   }
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const setupScroll = () => {
+  const setupScroll = ({ section, viewport, track }) => {
+    if (!section || !viewport || !track) {
+      return;
+    }
+
     const moveDistance = Math.max(0, track.scrollWidth - viewport.clientWidth);
 
     if (moveDistance <= 0 || window.matchMedia("(max-width: 720px)").matches) {
       gsap.set(track, { clearProps: "transform" });
+      viewport.style.overflowX = "auto";
       return;
     }
+
+    viewport.style.overflowX = "hidden";
 
     gsap.to(track, {
       x: -moveDistance,
       ease: "none",
       scrollTrigger: {
         trigger: section,
+        scroller: scrollContext ? scrollContext.scrollContainer : undefined,
         start: "top top",
         end: () => `+=${moveDistance}`,
         pin: true,
@@ -132,25 +237,27 @@ function initHorizontalGallery() {
   };
 
   window.addEventListener("load", () => {
-    setupScroll();
+    groups.forEach(setupScroll);
     ScrollTrigger.refresh();
   });
 }
 
-function initAboutLottie() {
-  const aboutLottie = document.querySelector("dotlottie-wc.about");
+function initLotties() {
+  const lotties = Array.from(document.querySelectorAll("dotlottie-wc"));
 
-  if (!aboutLottie) {
+  if (!lotties.length) {
     return;
   }
 
   const startAnimation = () => {
-    aboutLottie.setAttribute("autoplay", "");
-    aboutLottie.setAttribute("loop", "");
+    lotties.forEach((lottie) => {
+      lottie.setAttribute("autoplay", "");
+      lottie.setAttribute("loop", "");
 
-    if (typeof aboutLottie.play === "function") {
-      aboutLottie.play();
-    }
+      if (typeof lottie.play === "function") {
+        lottie.play();
+      }
+    });
   };
 
   if (window.customElements && window.customElements.whenDefined) {
@@ -160,5 +267,11 @@ function initAboutLottie() {
   }
 }
 
-initHorizontalGallery();
-initAboutLottie();
+if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const scrollContext = window.ScrollTrigger ? initSmoothScroll() : null;
+
+initHorizontalSections(scrollContext);
+initLotties();
