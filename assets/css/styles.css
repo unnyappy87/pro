@@ -1220,6 +1220,7 @@ button.button {
 
 .gallery-section__grid {
   display: flex;
+  align-items: center;
   width: max-content;
   gap: 48px;
   padding: 0 24vw;
@@ -1227,11 +1228,28 @@ button.button {
 }
 
 .gallery-section__grid img {
+  position: relative;
   display: block;
   width: clamp(280px, 20vw, 360px);
   height: clamp(440px, 31vw, 560px);
   border-radius: 13px;
   object-fit: cover;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 320ms ease, opacity 320ms ease, box-shadow 320ms ease;
+}
+
+.gallery-section__grid:hover img {
+  opacity: 0.72;
+  transform: scale(0.9);
+}
+
+.gallery-section__grid img:hover {
+  z-index: 2;
+  opacity: 1;
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.38);
+  transform: scale(1.14);
 }
 
 .site-footer {
@@ -1549,6 +1567,12 @@ button.button {
   .gallery-section__grid img {
     width: 220px;
     height: 346px;
+  }
+
+  .gallery-section__grid:hover img,
+  .gallery-section__grid img:hover {
+    opacity: 1;
+    transform: none;
   }
 
   .gallery-section__viewport {
