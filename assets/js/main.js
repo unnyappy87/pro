@@ -263,6 +263,7 @@ function initFlipModal() {
     const state = Flip.getState(card);
 
     activePlaceholder = makePlaceholder(card, firstRect);
+    card.classList.add("is-flip-active");
     card.after(activePlaceholder);
     modalContent.append(card);
     card.getBoundingClientRect();
@@ -320,6 +321,7 @@ function initFlipModal() {
       scale: true,
       nested: true,
       onComplete: () => {
+        activeCard.classList.remove("is-flip-active");
         setScrollLocked(false);
         activeCard = null;
         activePlaceholder = null;

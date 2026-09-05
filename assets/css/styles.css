@@ -62,6 +62,7 @@
   --shadow-project-panel: 0 8px 32px rgba(0, 0, 0, 0.08);
   --motion-fast: 220ms cubic-bezier(0.22, 1, 0.36, 1);
   --motion-medium: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-modal: 760ms cubic-bezier(0.22, 1, 0.36, 1);
 
   --spacing-2xs: 4px;
   --spacing-xs: 8px;
@@ -614,7 +615,8 @@ button.button {
   flex: 0 0 min(1040px, calc(100vw - 160px));
   cursor: pointer;
   will-change: transform, opacity;
-  transition: opacity var(--motion-fast);
+  transform-origin: center center;
+  transition: transform var(--motion-modal), opacity var(--motion-medium), box-shadow var(--motion-medium);
 }
 
 .projects-section__track .project-panel:hover,
@@ -1265,7 +1267,8 @@ button.button {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
   backface-visibility: hidden;
   will-change: transform, opacity;
-  transition: opacity var(--motion-fast);
+  transform-origin: center center;
+  transition: transform var(--motion-modal), opacity var(--motion-medium), box-shadow var(--motion-medium);
 }
 
 .gallery-section__grid img:hover {
@@ -1291,8 +1294,9 @@ button.button {
 }
 
 .flip-modal__content {
-  width: min(1180px, calc(100vw - 80px));
-  max-height: calc(100vh - 80px);
+  width: fit-content;
+  max-width: calc(100vw - 72px);
+  max-height: calc(100vh - 72px);
   overflow: hidden;
   border-radius: 16px;
   will-change: transform;
@@ -1300,19 +1304,34 @@ button.button {
 
 .flip-modal__content > .project-panel,
 .flip-modal__content > .personal-card {
-  width: 100%;
-  max-height: calc(100vh - 80px);
+  width: min(1280px, calc(100vw - 72px));
+  min-height: min(700px, calc(100vh - 72px));
+  max-height: calc(100vh - 72px);
   margin: 0;
   overflow: auto;
+  cursor: default;
+  box-shadow: 0 28px 84px rgba(0, 0, 0, 0.34);
 }
 
 .flip-modal__content > img {
   display: block;
-  width: min(720px, calc(100vw - 80px));
-  height: min(82vh, 820px);
+  width: min(860px, calc(100vw - 72px));
+  height: min(86vh, 900px);
   object-fit: contain;
   background: #111111;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.44);
+}
+
+body.is-flip-modal-open .projects-section__track .project-panel:not(.is-flip-active),
+body.is-flip-modal-open .personal-section__track .personal-card:not(.is-flip-active),
+body.is-flip-modal-open .gallery-section__grid img:not(.is-flip-active) {
+  opacity: 0.34;
+  transform: scale(0.86);
+}
+
+.flip-modal__content > .is-flip-active {
+  opacity: 1;
+  transform: none;
 }
 
 .flip-placeholder {
@@ -1698,6 +1717,13 @@ button.button {
 
   .flip-modal__content {
     width: calc(100vw - 36px);
+    max-height: calc(100vh - 36px);
+  }
+
+  .flip-modal__content > .project-panel,
+  .flip-modal__content > .personal-card {
+    width: calc(100vw - 36px);
+    min-height: auto;
     max-height: calc(100vh - 36px);
   }
 
