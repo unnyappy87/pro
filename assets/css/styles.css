@@ -60,6 +60,8 @@
   --shadow-button-elevation: 0 2px 6px rgba(0, 0, 0, 0.05), 0 8px 19px rgba(0, 0, 0, 0.1);
   --shadow-profile-card: 0 4px 12px rgba(0, 0, 0, 0.02);
   --shadow-project-panel: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --motion-fast: 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-medium: 420ms cubic-bezier(0.22, 1, 0.36, 1);
 
   --spacing-2xs: 4px;
   --spacing-xs: 8px;
@@ -580,6 +582,7 @@ button.button {
   border-radius: 13px;
   background: var(--color-bg-white);
   box-shadow: var(--shadow-project-panel);
+  backface-visibility: hidden;
 }
 
 .project-panel:first-of-type {
@@ -610,7 +613,8 @@ button.button {
   min-height: 520px;
   flex: 0 0 min(1040px, calc(100vw - 160px));
   cursor: pointer;
-  transition: opacity 220ms ease;
+  will-change: transform, opacity;
+  transition: opacity var(--motion-fast);
 }
 
 .projects-section__track .project-panel:hover,
@@ -795,6 +799,7 @@ button.button {
   border: 1px solid var(--color-border-default);
   border-radius: 8px;
   background: var(--color-bg-white);
+  backface-visibility: hidden;
 }
 
 .personal-card__summary {
@@ -1044,6 +1049,13 @@ button.button {
   padding: 32px;
   border-radius: 13px;
   background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  transition: transform var(--motion-medium), box-shadow var(--motion-medium);
+  will-change: transform;
+}
+
+.skill-card:hover {
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
 }
 
 .skill-card__lottie {
@@ -1251,7 +1263,9 @@ button.button {
   object-fit: cover;
   cursor: pointer;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
-  transition: opacity 220ms ease;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  transition: opacity var(--motion-fast);
 }
 
 .gallery-section__grid img:hover {
@@ -1268,6 +1282,7 @@ button.button {
   background: rgba(0, 0, 0, 0.62);
   opacity: 0;
   pointer-events: none;
+  will-change: opacity;
 }
 
 .flip-modal.is-open {
@@ -1280,6 +1295,7 @@ button.button {
   max-height: calc(100vh - 80px);
   overflow: hidden;
   border-radius: 16px;
+  will-change: transform;
 }
 
 .flip-modal__content > .project-panel,
@@ -1533,6 +1549,10 @@ button.button {
 
   .skill-card {
     flex: 0 1 360px;
+  }
+
+  .skill-card:hover {
+    transform: none;
   }
 }
 

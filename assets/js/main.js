@@ -188,7 +188,7 @@ function initHorizontalSections() {
         start: "top top",
         end: () => `+=${moveDistance}`,
         pin: true,
-        scrub: 0.8,
+        scrub: 1.15,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       },
@@ -273,13 +273,13 @@ function initFlipModal() {
 
     gsap.to(modal, {
       opacity: 1,
-      duration: 0.28,
-      ease: "power2.out",
+      duration: 0.34,
+      ease: "power3.out",
     });
 
     Flip.from(state, {
-      duration: 0.62,
-      ease: "power3.inOut",
+      duration: 0.78,
+      ease: "power4.inOut",
       absolute: true,
       scale: true,
       nested: true,
@@ -309,13 +309,13 @@ function initFlipModal() {
 
     gsap.to(modal, {
       opacity: 0,
-      duration: 0.24,
-      ease: "power2.out",
+      duration: 0.3,
+      ease: "power3.out",
     });
 
     Flip.from(state, {
-      duration: 0.58,
-      ease: "power3.inOut",
+      duration: 0.7,
+      ease: "power4.inOut",
       absolute: true,
       scale: true,
       nested: true,
