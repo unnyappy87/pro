@@ -242,6 +242,174 @@ function initHorizontalSections(scrollContext) {
   });
 }
 
+function initFlipModal(scrollContext) {
+  if (!window.gsap || !window.Flip) {
+    return;
+  }
+
+  gsap.registerPlugin(Flip);
+
+  const modal = document.createElement("div");
+  const modalContent = document.createElement("div");
+  let activeCard = null;
+  let activePlaceholder = null;
+  let activeParent = null;
+  let activeNextSibling = null;
+  let activeViewport = null;
+  let isAnimating = false;
+
+  modal.className = "flip-modal";
+  modal.setAttribute("aria-hidden", "true");
+  modalContent.className = "flip-modal__content";
+  modal.append(modalContent);
+  document.body.append(modal);
+
+  const getInteractiveCards = () =>
+    Array.from(
+      document.querySelectorAll(
+        ".projects-section__track .project-panel, .personal-section__track .personal-card, .gallery-section__grid img"
+      )
+    );
+
+  const setScrollLocked = (isLocked) => {
+    document.body.classList.toggle("is-flip-modal-open", isLocked);
+
+    if (activeViewport) {
+      activeViewport.classList.toggle("is-scroll-locked", isLocked);
+    }
+
+    if (scrollContext && scrollContext.locomotive) {
+      if (isLocked && typeof scrollContext.locomotive.stop === "function") {
+        scrollContext.locomotive.stop();
+      }
+
+      if (!isLocked && typeof scrollContext.locomotive.start === "function") {
+        scrollContext.locomotive.start();
+      }
+    }
+  };
+
+  const makePlaceholder = (card, rect) => {
+    const placeholder = document.createElement(card.tagName === "IMG" ? "span" : "div");
+
+    placeholder.className = "flip-placeholder";
+    placeholder.style.width = `${rect.width}px`;
+    placeholder.style.height = `${rect.height}px`;
+
+    return placeholder;
+  };
+
+  const openModal = (card) => {
+    if (isAnimating || activeCard || prefersReducedMotion.matches) {
+      return;
+    }
+
+    activeCard = card;
+    activeParent = card.parentElement;
+    activeNextSibling = card.nextSibling;
+    activeViewport = card.closest(".horizontal-scroll, .gallery-section__viewport");
+
+    const firstRect = card.getBoundingClientRect();
+    const state = Flip.getState(card);
+
+    activePlaceholder = makePlaceholder(card, firstRect);
+    card.after(activePlaceholder);
+    modalContent.append(card);
+    card.getBoundingClientRect();
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    setScrollLocked(true);
+    isAnimating = true;
+
+    gsap.to(modal, {
+      opacity: 1,
+      duration: 0.28,
+      ease: "power2.out",
+    });
+
+    Flip.from(state, {
+      duration: 0.62,
+      ease: "power3.inOut",
+      absolute: true,
+      scale: true,
+      nested: true,
+      onComplete: () => {
+        isAnimating = false;
+      },
+    });
+  };
+
+  const closeModal = () => {
+    if (isAnimating || !activeCard || !activePlaceholder || !activeParent) {
+      return;
+    }
+
+    const state = Flip.getState(activeCard);
+
+    if (activeNextSibling && activeNextSibling.parentElement === activeParent) {
+      activeParent.insertBefore(activeCard, activeNextSibling);
+    } else {
+      activeParent.append(activeCard);
+    }
+
+    activePlaceholder.remove();
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    isAnimating = true;
+
+    gsap.to(modal, {
+      opacity: 0,
+      duration: 0.24,
+      ease: "power2.out",
+    });
+
+    Flip.from(state, {
+      duration: 0.58,
+      ease: "power3.inOut",
+      absolute: true,
+      scale: true,
+      nested: true,
+      onComplete: () => {
+        setScrollLocked(false);
+        activeCard = null;
+        activePlaceholder = null;
+        activeParent = null;
+        activeNextSibling = null;
+        activeViewport = null;
+        isAnimating = false;
+
+        if (window.ScrollTrigger) {
+          ScrollTrigger.refresh();
+        }
+      },
+    });
+  };
+
+  getInteractiveCards().forEach((card) => {
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "button");
+    card.addEventListener("click", () => openModal(card));
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  });
+}
+
 function initLotties() {
   const lotties = Array.from(document.querySelectorAll("dotlottie-wc"));
 
@@ -267,11 +435,14 @@ function initLotties() {
   }
 }
 
-if (window.gsap && window.ScrollTrigger) {
+if (window.gsap && window.ScrollTrigger && window.Flip) {
+  gsap.registerPlugin(ScrollTrigger, Flip);
+} else if (window.gsap && window.ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const scrollContext = window.ScrollTrigger ? initSmoothScroll() : null;
 
 initHorizontalSections(scrollContext);
+initFlipModal(scrollContext);
 initLotties();
