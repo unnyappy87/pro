@@ -118,47 +118,7 @@ function createHorizontalTrack(sectionSelector, itemSelector, viewportClass, tra
   return section;
 }
 
-function initSmoothScroll() {
-  const scrollContainer = document.querySelector("[data-scroll-container]");
-
-  if (!scrollContainer || prefersReducedMotion.matches || !window.LocomotiveScroll) {
-    return null;
-  }
-
-  const locomotive = new LocomotiveScroll({
-    el: scrollContainer,
-    smooth: true,
-    tablet: { smooth: false },
-    smartphone: { smooth: false },
-  });
-
-  locomotive.on("scroll", ScrollTrigger.update);
-
-  ScrollTrigger.scrollerProxy(scrollContainer, {
-    scrollTop(value) {
-      if (arguments.length) {
-        locomotive.scrollTo(value, { duration: 0, disableLerp: true });
-      }
-
-      return locomotive.scroll.instance.scroll.y;
-    },
-    getBoundingClientRect() {
-      return {
-        top: 0,
-        left: 0,
-        width: window.innerWidth,
-        height: window.innerHeight,
-      };
-    },
-    pinType: scrollContainer.style.transform ? "transform" : "fixed",
-  });
-
-  ScrollTrigger.addEventListener("refresh", () => locomotive.update());
-
-  return { locomotive, scrollContainer };
-}
-
-function initHorizontalSections(scrollContext) {
+function initHorizontalSections() {
   createHorizontalTrack(
     ".projects-section",
     ".project-panel",
@@ -225,7 +185,6 @@ function initHorizontalSections(scrollContext) {
       ease: "none",
       scrollTrigger: {
         trigger: section,
-        scroller: scrollContext ? scrollContext.scrollContainer : undefined,
         start: "top top",
         end: () => `+=${moveDistance}`,
         pin: true,
@@ -242,7 +201,7 @@ function initHorizontalSections(scrollContext) {
   });
 }
 
-function initFlipModal(scrollContext) {
+function initFlipModal() {
   if (!window.gsap || !window.Flip) {
     return;
   }
@@ -278,15 +237,6 @@ function initFlipModal(scrollContext) {
       activeViewport.classList.toggle("is-scroll-locked", isLocked);
     }
 
-    if (scrollContext && scrollContext.locomotive) {
-      if (isLocked && typeof scrollContext.locomotive.stop === "function") {
-        scrollContext.locomotive.stop();
-      }
-
-      if (!isLocked && typeof scrollContext.locomotive.start === "function") {
-        scrollContext.locomotive.start();
-      }
-    }
   };
 
   const makePlaceholder = (card, rect) => {
@@ -441,8 +391,6 @@ if (window.gsap && window.ScrollTrigger && window.Flip) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const scrollContext = window.ScrollTrigger ? initSmoothScroll() : null;
-
-initHorizontalSections(scrollContext);
-initFlipModal(scrollContext);
+initHorizontalSections();
+initFlipModal();
 initLotties();
