@@ -1,22 +1,22 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1920" height="830.2" viewBox="0 0 1920 830.2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="1920" height="661" viewBox="0 0 1920 661" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Generated Copyright-Safe Gallery Pattern" opacity="0.55" clip-path="url(#clip0_0_7)">
-<circle id="Pattern Top Sage Disc" cx="1546" cy="202" r="174" fill="#DDE8D0"/>
-<circle id="Pattern Top Black Counterform" cx="1548" cy="188" r="94" fill="#111111"/>
-<ellipse id="Pattern Top Green Leaf A" opacity="0.72" cx="1555.44" cy="167.837" rx="46" ry="109" transform="rotate(28 1555.44 167.837)" fill="#7DA17A"/>
-<ellipse id="Pattern Top Cream Leaf B" opacity="0.72" cx="1507.58" cy="259.003" rx="42" ry="95" transform="rotate(-38 1507.58 259.003)" fill="#F4E5C3"/>
-<circle id="Pattern Top Gold Dot" opacity="0.65" cx="1705" cy="323" r="17" fill="#F6C45C"/>
-<circle id="Pattern Bottom Left Cream Arc" cx="1" cy="809" r="155" fill="#F4E5C3"/>
-<circle id="Pattern Bottom Left Black Cut" cx="-1" cy="803" r="79" fill="#111111"/>
-<ellipse id="Pattern Bottom Left Green Leaf" opacity="0.72" cx="24.4722" cy="785.101" rx="35" ry="83" transform="rotate(42 24.4722 785.101)" fill="#7DA17A"/>
-<rect id="Pattern Bottom Right Cream Ribbon" x="1450" y="628" width="535" height="168" rx="84" transform="rotate(8 1450 628)" fill="#F4E5C3"/>
-<ellipse id="Pattern Bottom Right Green Leaf A" opacity="0.72" cx="1722.69" cy="603.981" rx="57" ry="138" transform="rotate(-48 1722.69 603.981)" fill="#7DA17A"/>
-<ellipse id="Pattern Bottom Right Sage Leaf B" opacity="0.72" cx="1726.87" cy="688.617" rx="46" ry="118" transform="rotate(20 1726.87 688.617)" fill="#B9CFA7"/>
-<circle id="Pattern Bottom Right Black Counterform" cx="1551" cy="745" r="157" fill="#111111"/>
-<circle id="Pattern Bottom Right Gold Dot" opacity="0.65" cx="1852" cy="634" r="14" fill="#F6C45C"/>
+<circle id="Pattern Top Sage Disc" cx="1542.5" cy="92.5" r="122.5" fill="#DDE8D0"/>
+<circle id="Pattern Top Black Counterform" cx="1566" cy="96" r="66" fill="#111111"/>
+<ellipse id="Pattern Top Green Leaf A" opacity="0.72" cx="1612.55" cy="83.2448" rx="32.5" ry="77" transform="rotate(28 1612.55 83.2448)" fill="#7DA17A"/>
+<ellipse id="Pattern Top Cream Leaf B" opacity="0.72" cx="1524.5" cy="184.635" rx="29.5" ry="67" transform="rotate(-38 1524.5 184.635)" fill="#F4E5C3"/>
+<circle id="Pattern Top Gold Dot" opacity="0.65" cx="1752" cy="192" r="12" fill="#F6C45C"/>
+<circle id="Pattern Bottom Left Cream Arc" cx="29" cy="549" r="109" fill="#F4E5C3"/>
+<circle id="Pattern Bottom Left Black Cut" cx="65.5" cy="555.5" r="55.5" fill="#111111"/>
+<ellipse id="Pattern Bottom Left Green Leaf" opacity="0.72" cx="99.0629" cy="539.868" rx="24.5" ry="58.5" transform="rotate(42 99.0629 539.868)" fill="#7DA17A"/>
+<rect id="Pattern Bottom Right Cream Ribbon" x="1520" y="480" width="377" height="118" rx="59" transform="rotate(8 1520 480)" fill="#F4E5C3"/>
+<ellipse id="Pattern Bottom Right Green Leaf A" opacity="0.72" cx="1738.85" cy="455.18" rx="40" ry="97" transform="rotate(-48 1738.85 455.18)" fill="#7DA17A"/>
+<ellipse id="Pattern Bottom Right Sage Leaf B" opacity="0.72" cx="1762.15" cy="519.11" rx="32.5" ry="83" transform="rotate(20 1762.15 519.11)" fill="#B9CFA7"/>
+<circle id="Pattern Bottom Right Black Counterform" cx="1610.5" cy="550.5" r="110.5" fill="#111111"/>
+<circle id="Pattern Bottom Right Gold Dot" opacity="0.65" cx="1880" cy="510" r="10" fill="#F6C45C"/>
 </g>
 <defs>
 <clipPath id="clip0_0_7">
-<rect width="1920" height="830.2" fill="white"/>
+<rect width="1920" height="661" fill="white"/>
 </clipPath>
 </defs>
 </svg>

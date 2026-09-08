@@ -1,14 +1,21 @@
 <!doctype html>
-<!-- deploy: modal-close-smooth-20260906 -->
+<!-- deploy: gallery-caption-font-20260909 -->
 <html lang="ko">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Lee Suji Portfolio Page">
     <title>Lee Suji Portfolio Page</title>
-    <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg?v=gallery-caption-font-20260909">
+    <link rel="alternate icon" type="image/png" href="./assets/icons/favicon.png?v=gallery-caption-font-20260909">
     <link rel="apple-touch-icon" href="./assets/icons/favicon.png">
-    <link rel="stylesheet" href="./assets/css/styles.css?v=modal-close-smooth-20260906">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=gallery-caption-font-20260909">
   </head>
   <body>
     <a class="skip-link" href="#home">본문으로 이동</a>
@@ -130,16 +137,16 @@
           <article class="profile-card section-card">
             <h3 class="profile-card__title">자격사항</h3>
             <div class="profile-card__body profile-card__body--spaced">
-              <p><strong>취득날짜</strong> : <span class="font-poppins">2016.07</span><br>자격명 : <span class="font-poppins">DIAT</span>-스프레드시트</p>
-              <p><strong>취득날짜</strong> : <span class="font-poppins">2017.03</span><br>자격명 : 전산회계 <span class="font-poppins">1</span>급</p>
-              <p><strong>취득날짜</strong> : <span class="font-poppins">2018.01</span><br><strong>자격명</strong> : <span class="font-poppins">JLPT N2</span></p>
-              <p><strong>취득날짜</strong> : <span class="font-poppins">2023. 07</span><br>자격명 : <span class="font-poppins">GTQ</span>포토샵<span class="font-poppins">1</span>급</p>
+              <p><strong>취득날짜</strong> : <span class="font-poppins">2016.07</span><br>자격명 : <span class="font-poppins">DIAT</span>-스프레드시트<br>주최사 : 한국정보통신진흥협회</p>
+              <p><strong>취득날짜</strong> : <span class="font-poppins">2017.03</span><br>자격명 : 전산회계 <span class="font-poppins">1</span>급<br>주최사 : 한국세무사회</p>
+              <p><strong>취득날짜</strong> : <span class="font-poppins">2018.01</span><br><strong>자격명</strong> : <span class="font-poppins">JLPT N2</span><br>주최사 : 공익재단법인 일본국제교육지원 협회</p>
+              <p><strong>취득날짜</strong> : <span class="font-poppins">2023. 07</span><br>자격명 : <span class="font-poppins">GTQ</span>포토샵<span class="font-poppins">1</span>급<br>주최사 : 한국생산성본부</p>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+      <section class="projects-section" id="projects" aria-labelledby="projects-title" data-node-id="6985:2704">
         <div class="section-container">
           <div class="section-heading projects-section__heading">
             <h2 class="section-heading__title" id="projects-title">TEAM PROJECTS</h2>
@@ -147,61 +154,83 @@
           </div>
 
           <article class="project-panel section-card" data-node-id="6985:2959">
-            <header class="project-panel__header">
-              <h3>풀무원 웹사이트 리디자인</h3>
+            <div class="project-panel__copy">
               <div class="project-panel__badges">
                 <span class="badge badge--soft">Project01</span>
                 <span class="project-panel__slash">/</span>
                 <span class="badge badge--soft badge--wide">TEAM PROJECT 01 · WEBSITE REDESIGN</span>
               </div>
-            </header>
-            <div class="project-panel__actions">
-              <button class="project-button project-button--light" type="button" data-static-action aria-label="기획서 보기 링크 미연결">기획서 보기</button>
-              <button class="project-button project-button--dark" type="button" data-static-action aria-label="사이트 보기 링크 미연결">사이트 보기</button>
-            </div>
-            <div class="project-panel__content">
-              <figure class="project-panel__image">
-                <img src="./assets/images/project-pulmuone.png" alt="풀무원 웹사이트 리디자인 화면" loading="lazy" decoding="async">
-              </figure>
+              <h3>풀무원 웹사이트 리디자인</h3>
+              <div class="project-panel__actions">
+                <button class="project-button project-button--light" type="button" data-static-action>기획서 보기</button>
+                <button class="project-button project-button--dark" type="button" data-static-action>사이트 보기</button>
+              </div>
               <ul class="spec-list project-panel__specs">
                 <li><span>구현 기술</span><strong>HTML · CSS · JavaScript · Figma</strong></li>
                 <li><span>작업 기간</span><strong>2026.07 ~ 2026.08</strong></li>
                 <li><span>배포 매체</span><strong>웹 (PC · 모바일)</strong></li>
-                <li><span>본인 기여도</span><strong>100%</strong></li>
+                <li><span>본인 기여도</span><strong>13.5%</strong></li>
                 <li><span>브라우저 호환성</span><strong>Chrome · Safari · Edge</strong></li>
                 <li><span>페이지 수</span><strong>0개</strong></li>
                 <li class="project-panel__feature"><span>특징</span><strong>친환경 브랜드 가치 전달 중심 UI 개선, 웹 접근성 향상, 반응형 레이아웃 적용</strong></li>
               </ul>
             </div>
+            <figure class="project-panel__image">
+              <img src="./assets/images/project-pulmuone.png" alt="풀무원 웹사이트 리디자인 화면" loading="lazy" decoding="async">
+            </figure>
           </article>
 
-          <article class="project-panel section-card project-panel--video" data-node-id="7114:2">
-            <header class="project-panel__header">
-              <h3>팀 영상 프로젝트</h3>
+          <article class="project-panel section-card project-panel--reverse" data-node-id="6985:3020">
+            <figure class="project-panel__image">
+              <img src="./assets/images/project-pulmuone.png" alt="풀무원 UI/UX 리디자인 화면" loading="lazy" decoding="async">
+            </figure>
+            <div class="project-panel__copy">
               <div class="project-panel__badges">
                 <span class="badge badge--soft">Project02</span>
                 <span class="project-panel__slash">/</span>
-                <span class="badge badge--soft badge--wide">TEAM PROJECT 02 · VIDEO PROJECT</span>
+                <span class="badge badge--soft badge--wide">TEAM PROJECT 02 · UI/UX REDESIGN</span>
               </div>
-            </header>
-            <div class="project-panel__actions project-panel__actions--triple">
-              <button class="project-button project-button--light project-button--wide" type="button" data-static-action>기획서 보기</button>
-              <button class="project-button project-button--dark project-button--wide" type="button" data-static-action>깃허브 보기</button>
-              <button class="project-button project-button--light project-button--wide" type="button" data-static-action>영상 보기</button>
-            </div>
-            <div class="project-panel__content">
-              <figure class="project-panel__image project-panel__image--placeholder">
-                <span>팀 영상 작업 대표 화면</span>
-              </figure>
+              <h3>풀무원 UI/UX리디자인</h3>
+              <div class="project-panel__actions">
+                <button class="project-button project-button--dark project-button--wide" type="button" data-static-action>구현화면보기</button>
+              </div>
               <ul class="spec-list project-panel__specs">
-                <li><span>구현 기술</span><strong>Premiere Pro · After Effects</strong></li>
-                <li><span>작업 기간</span><strong>2026.07 ~ 2026.08</strong></li>
-                <li><span>배포 매체</span><strong>온라인 영상 콘텐츠</strong></li>
-                <li><span>본인 기여도</span><strong>영상 기획 · 편집 참여</strong></li>
-                <li><span>작업 범위</span><strong>콘티 · 컷 편집 · 자막 · 색 보정</strong></li>
-                <li class="project-panel__feature"><span>특징</span><strong>장면 전환과 리듬을 고려한 영상 구성, 브랜드 분위기에 맞춘 편집 적용</strong></li>
+                <li><span>구현 기술</span><strong>FIGMA</strong></li>
+                <li><span>작업 기간</span><strong>1주</strong></li>
+                <li><span>배포 매체</span><strong>웹 (PC · 모바일)</strong></li>
+                <li><span>본인 기여도</span><strong>13.5%</strong></li>
+                <li><span>브라우저 호환성</span><strong>Chrome · Safari · Edge</strong></li>
+                <li><span>페이지 수</span><strong>0개</strong></li>
+                <li class="project-panel__feature"><span>특징</span><strong>사용자 경험 중심 UI/UX 개선, 인터렉션 디자인, 프로토타입 제작</strong></li>
               </ul>
             </div>
+          </article>
+
+          <article class="project-panel section-card" data-node-id="7114:2">
+            <div class="project-panel__copy">
+              <div class="project-panel__badges">
+                <span class="badge badge--soft">Project03</span>
+                <span class="project-panel__slash">/</span>
+                <span class="badge badge--soft badge--wide">TEAM PROJECT 03 · VIDEO PROJECT</span>
+              </div>
+              <h3>팀 영상 프로젝트</h3>
+              <div class="project-panel__actions">
+                <button class="project-button project-button--light" type="button" data-static-action>기획서 보기</button>
+                <button class="project-button project-button--dark" type="button" data-static-action>영상 보기</button>
+              </div>
+              <ul class="spec-list project-panel__specs">
+                <li><span>구현 기술</span><strong>Premiere Pro 등 실제 사용한 프로그램</strong></li>
+                <li><span>작업 기간</span><strong>0000.00 ~ 0000.00</strong></li>
+                <li><span>배포 매체</span><strong>영상 플랫폼 (유튜브 등)</strong></li>
+                <li><span>담당 역할</span><strong>영상 기획 · 편집 · 모션 디자인</strong></li>
+                <li><span>본인 기여도</span><strong>00%</strong></li>
+                <li><span>브라우저 호환성</span><strong>-</strong></li>
+                <li class="project-panel__feature"><span>특징</span><strong>팀원 협업, 스토리보드 기획, 브랜드 메시지 전달</strong></li>
+              </ul>
+            </div>
+            <figure class="project-panel__image project-panel__image--placeholder">
+              <span>팀 영상 대표 장면<br>또는 썸네일</span>
+            </figure>
           </article>
         </div>
       </section>
@@ -209,127 +238,92 @@
       <section class="personal-section" aria-labelledby="personal-title">
         <div class="section-container">
           <div class="section-heading personal-section__heading">
+            <p class="section-heading__eyebrow section-heading__eyebrow--pill">PROJECT ARCHIVE</p>
             <h2 class="section-heading__title" id="personal-title">PERSONAL &amp; VIDEO PROJECTS</h2>
-            <p class="section-heading__description">개인 작업과 영상 프로젝트를 통해<br>디자인과 구현 역량을 확장했습니다.</p>
+            <p class="section-heading__description">웹사이트 리디자인부터 영상 제작까지,<br>개인 작업을 통해 디자인과 구현 역량을 확장했습니다.</p>
           </div>
 
-          <article class="personal-card section-card">
-            <div class="personal-card__summary">
+          <article class="personal-card section-card" data-node-id="7100:9">
+            <div class="personal-card__header">
               <div class="personal-card__badges">
-                <span class="badge badge--blue">PERSONAL WEBSITE</span>
-                <span class="badge badge--dark">WEB PUBLISHING</span>
+                <span class="badge badge--blue">PERSONAL PROJECT 01</span>
+                <span class="badge badge--muted">WEB REDESIGN</span>
               </div>
               <h3>신한카드 웹사이트 리디자인</h3>
-              <div class="personal-card__actions">
-                <button class="project-button project-button--dark" type="button" data-static-action>기획서 보기</button>
-                <button class="project-button project-button--light" type="button" data-static-action>사이트 보기</button>
-              </div>
-              <figure class="personal-card__image personal-card__image--blue">
-                <span>신한카드 사이트 화면</span>
-              </figure>
+              <p>카드 탐색·비교 UX 개선과 금융 서비스 접근성을 중심으로 리디자인한 프로젝트</p>
             </div>
+            <figure class="personal-card__image personal-card__image--blue">
+              <img src="./assets/images/project-shinhan.png" alt="신한카드 리디자인 메인 화면 목업" loading="lazy" decoding="async">
+              <figcaption>신한카드 리디자인 메인 화면 · PC · 모바일 목업</figcaption>
+            </figure>
             <ul class="spec-list personal-card__specs personal-card__specs--blue">
-              <li><span>구현 기술</span><strong>HTML · CSS · JavaScript · Figma</strong></li>
-              <li><span>작업 기간</span><strong>2026.06 ~ 2026.08</strong></li>
-              <li><span>배포 매체</span><strong>반응형 웹사이트</strong></li>
-              <li><span>본인 기여도</span><strong>100%</strong></li>
-              <li><span>브라우저 호환성</span><strong>Chrome · Safari · Edge</strong></li>
-              <li><span>페이지 수</span><strong>0개</strong></li>
-              <li><span>특징</span><strong>카드 서비스 정보를 명확하게 탐색할 수 있는 화면 구조 적용</strong></li>
+              <li><span>담당 역할</span><strong>기획 · UI/UX 디자인 · 프로토타이핑</strong></li>
+              <li><span>작업 기간</span><strong>0000.00 ~ 0000.00</strong></li>
+              <li><span>사용 기술</span><strong>HTML · CSS · JavaScript · Figma</strong></li>
+              <li><span>특징</span><strong>카드 탐색·비교 UX 개선, 금융 서비스 접근성 향상</strong></li>
             </ul>
+            <div class="personal-card__actions">
+              <button class="project-button project-button--dark" type="button" data-static-action>기획서 보기</button>
+              <button class="project-button project-button--light" type="button" data-static-action>사이트 보기</button>
+            </div>
           </article>
 
-          <article class="personal-card section-card">
-            <div class="personal-card__summary">
+          <article class="personal-card section-card" data-node-id="7100:20">
+            <div class="personal-card__header">
               <div class="personal-card__badges">
-                <span class="badge badge--green">PERSONAL WEBSITE</span>
-                <span class="badge badge--dark">WEB PUBLISHING</span>
+                <span class="badge badge--green">PERSONAL PROJECT 02</span>
+                <span class="badge badge--muted">WEB REDESIGN</span>
               </div>
               <h3>하나카드 웹사이트 리디자인</h3>
-              <div class="personal-card__actions">
-                <button class="project-button project-button--dark" type="button" data-static-action>기획서 보기</button>
-                <button class="project-button project-button--light" type="button" data-static-action>사이트 보기</button>
-              </div>
-              <figure class="personal-card__image personal-card__image--green">
-                <span>하나카드 화면</span>
-              </figure>
+              <p>하나카드 브랜드 특성을 반영하고 카드 혜택 정보 가시성을 높인 리디자인 프로젝트</p>
             </div>
+            <figure class="personal-card__image personal-card__image--green">
+              <img src="./assets/images/project-hana.png" alt="하나카드 리디자인 메인 화면 목업" loading="lazy" decoding="async">
+              <figcaption>하나카드 리디자인 메인 화면 · 주요 카드 소개 화면</figcaption>
+            </figure>
             <ul class="spec-list personal-card__specs">
-              <li><span>구현 기술</span><strong>HTML · CSS · JavaScript · Figma</strong></li>
-              <li><span>작업 기간</span><strong>2026.06 ~ 2026.08</strong></li>
-              <li><span>배포 매체</span><strong>반응형 웹사이트</strong></li>
-              <li><span>본인 기여도</span><strong>100%</strong></li>
-              <li><span>브라우저 호환성</span><strong>Chrome · Safari · Edge</strong></li>
-              <li><span>페이지 수</span><strong>0개</strong></li>
-              <li><span>특징</span><strong>금융 정보 탐색에 적합한 명확한 화면 구조 적용</strong></li>
+              <li><span>담당 역할</span><strong>기획 · UI/UX 디자인 · 프로토타이핑</strong></li>
+              <li><span>작업 기간</span><strong>0000.00 ~ 0000.00</strong></li>
+              <li><span>사용 기술</span><strong>HTML · CSS · JavaScript · Figma</strong></li>
+              <li><span>특징</span><strong>하나카드 브랜드 특성 반영, 카드 혜택 정보 가시성 향상</strong></li>
             </ul>
-          </article>
-
-          <article class="personal-card section-card">
-            <div class="personal-card__summary">
-              <div class="personal-card__badges">
-                <span class="badge badge--yellow">VIDEO PROJECT</span>
-                <span class="badge badge--green">MOTION GRAPHIC</span>
-              </div>
-              <h3>하나투어 트래블로그 광고 영상</h3>
-              <div class="personal-card__actions">
-                <button class="project-button project-button--dark" type="button" data-static-action>기획서 보기</button>
-                <button class="project-button project-button--light" type="button" data-static-action>영상 보기</button>
-              </div>
-              <figure class="personal-card__image personal-card__image--yellow">
-                <span>하나투어 트래블로그 영상 썸네일</span>
-              </figure>
+            <div class="personal-card__actions">
+              <a class="project-button project-button--dark" href="https://www.figma.com/deck/ji8MgZ3tDOS9M7MWfezoY4/%ED%95%98%EB%82%98%EC%B9%B4%EB%93%9C-%ED%8A%B8%EB%9E%98%EB%B8%94%EB%A1%9C%EA%B7%B8?node-id=1-42&t=5RgWhay3q3SELOR4-1" target="_blank" rel="noopener noreferrer">기획서 보기</a>
+              <button class="project-button project-button--light" type="button" data-static-action>사이트 보기</button>
             </div>
-            <ul class="spec-list personal-card__specs personal-card__specs--yellow">
-              <li><span>구현 기술</span><strong>Premiere Pro · Figma</strong></li>
-              <li><span>작업 기간</span><strong>2026.07 ~ 2026.08</strong></li>
-              <li><span>배포 매체</span><strong>YouTube · Instagram</strong></li>
-              <li><span>본인 기여도</span><strong>100%</strong></li>
-              <li><span>작업 범위</span><strong>기획 · 편집 · 색 보정 · 자막</strong></li>
-              <li><span>특징</span><strong>여행 감성을 강조한 빠른 컷 편집과 정보 전달형 구성</strong></li>
-            </ul>
           </article>
-        </div>
-      </section>
 
-      <section class="certificate-section" aria-labelledby="certificate-title">
-        <div class="section-container certificate-section__container">
-          <div class="section-heading">
-            <h2 class="section-heading__title" id="certificate-title">Certificate</h2>
-            <p class="section-heading__description">업무에 필요한 기초 역량을 자격으로 증명합니다.</p>
-          </div>
-          <div class="certificate-grid">
-            <article class="certificate-card">
-              <span class="certificate-card__status">2016.07</span>
-              <span class="certificate-card__icon">XL</span>
-              <h3>DIAT-스프레드시트</h3>
-              <p>한국정보통신진흥협회</p>
-            </article>
-            <article class="certificate-card">
-              <span class="certificate-card__status">2017.03</span>
-              <span class="certificate-card__icon certificate-card__icon--blue">AC</span>
-              <h3>전산회계 1급</h3>
-              <p>한국세무사회</p>
-            </article>
-            <article class="certificate-card">
-              <span class="certificate-card__status">2018.01</span>
-              <span class="certificate-card__icon certificate-card__icon--yellow">JP</span>
-              <h3>JLPT N2</h3>
-              <p>일본국제교류기금</p>
-            </article>
-            <article class="certificate-card">
-              <span class="certificate-card__status">2023.07</span>
-              <span class="certificate-card__icon certificate-card__icon--gray">Ps</span>
-              <h3>GTQ 포토샵 1급</h3>
-              <p>한국생산성본부</p>
-            </article>
-          </div>
+          <article class="personal-card section-card" data-node-id="7100:31">
+            <div class="personal-card__header">
+              <div class="personal-card__badges">
+                <span class="badge badge--green">VIDEO PROJECT</span>
+                <span class="badge badge--muted">BRAND FILM</span>
+              </div>
+              <h3>하나카드 트래블로그 광고 영상</h3>
+              <p>여행지의 분위기와 트래블로그 카드 혜택을 연결한 브랜드 광고 영상 프로젝트</p>
+            </div>
+            <figure class="personal-card__image personal-card__image--yellow">
+              <img src="./assets/images/project-travellog.png" alt="하나카드 트래블로그 광고 영상 장면" loading="lazy" decoding="async">
+              <figcaption>트래블로그 카드와 도쿄·파리·발리 대표 장면</figcaption>
+            </figure>
+            <ul class="spec-list personal-card__specs personal-card__specs--yellow">
+              <li><span>담당 역할</span><strong>기획 · UI/UX 디자인 · 프로토타이핑</strong></li>
+              <li><span>작업 기간</span><strong>0000.00 ~ 0000.00</strong></li>
+              <li><span>사용 기술</span><strong>Premiere Pro · Figma</strong></li>
+              <li><span>특징</span><strong>여행지의 분위기와 트래블로그 카드 혜택을 연결한 브랜드 영상</strong></li>
+            </ul>
+            <div class="personal-card__actions">
+              <a class="project-button project-button--dark" href="https://www.figma.com/deck/ji8MgZ3tDOS9M7MWfezoY4" target="_blank" rel="noopener noreferrer">기획서 보기</a>
+              <button class="project-button project-button--light" type="button" data-static-action>영상 보기</button>
+            </div>
+          </article>
         </div>
       </section>
 
       <section class="skills-section" id="skills" aria-labelledby="skills-title">
         <div class="section-container">
-          <h2 class="skills-section__title" id="skills-title">Skills 디자인, 웹 퍼블리싱, 영상 제작에 필요한 다양한 툴과 기술을 활용할 수 있습니다.</h2>
+          <h2 class="skills-section__title" id="skills-title">Skills</h2>
+          <p class="skills-section__description">디자인, 웹 퍼블리싱, 영상 제작에 필요한 다양한 툴과 기술을 활용할 수 있습니다.</p>
           <div class="skills-grid" data-node-id="6985:2572">
             <article class="skill-card">
               <dotlottie-wc
@@ -380,42 +374,101 @@
         <span class="wave-divider__arc wave-divider__arc--right"></span>
       </div>
 
+      <section class="pictures-section" aria-labelledby="pictures-title" data-node-id="7645:17">
+        <h2 id="pictures-title">Pictures</h2>
+        <p>그림으로 남긴 순간 · Hand-drawn moments</p>
+        <div class="pictures-section__viewport">
+          <div class="pictures-section__grid">
+            <figure>
+              <img src="./image/IMG_0824%201.jpg" alt="아크릴화 호수속의달" loading="lazy" decoding="async">
+              <figcaption>종류: 아크릴화<br>제목: 호수속의달<br>크기: 30*40cm<br>년도: 2026</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_0917%201.jpg" alt="유화 노랑장미" loading="lazy" decoding="async">
+              <figcaption>종류: 유화<br>제목: 노랑장미<br>크기: 45*60cm<br>년도: 2025</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562_01%201.jpg" alt="유화 풍경화" loading="lazy" decoding="async">
+              <figcaption>종류: 유화<br>제목: 풍경화<br>크기: 45*60cm<br>년도: 2026</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562_03%201.jpg" alt="입시미술 작품" loading="lazy" decoding="async">
+              <figcaption>종류: 입시미술<br>크기: 39.4cm * 54.5cm<br>년도: 2005</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562_04%201.jpg" alt="입시미술 작품" loading="lazy" decoding="async">
+              <figcaption>종류: 입시미술<br>크기: 39.4cm * 54.5cm<br>년도: 2005</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section class="gallery-section" id="gallery" aria-labelledby="gallery-title" data-node-id="7217:86">
         <img class="gallery-section__pattern" src="./assets/images/gallery-pattern.svg" alt="" aria-hidden="true">
         <h2 id="gallery-title">LIFE LOG</h2>
         <p>여행부터 취미까지, 일상 속 다양한 순간을 기록합니다.</p>
         <div class="gallery-section__viewport">
           <div class="gallery-section__grid">
-            <img src="./assets/images/gallery-01.png" alt="Life log image 1" loading="lazy" decoding="async">
-            <img src="./assets/images/gallery-02.png" alt="Life log image 2" loading="lazy" decoding="async">
-            <img src="./assets/images/gallery-03.png" alt="Life log image 3" loading="lazy" decoding="async">
-            <img src="./assets/images/gallery-04.png" alt="Life log image 4" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562.jpg" alt="Life log photo 5" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_01.jpg" alt="Life log photo 6" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_02.jpg" alt="Life log photo 7" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_03.jpg" alt="Life log photo 8" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_04.jpg" alt="Life log photo 9" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_05.jpg" alt="Life log photo 10" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_06.jpg" alt="Life log photo 11" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_07.jpg" alt="Life log photo 12" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_08.jpg" alt="Life log photo 13" loading="lazy" decoding="async">
-            <img src="./image/KakaoTalk_20260905_231129562_09.jpg" alt="Life log photo 14" loading="lazy" decoding="async">
-            <img src="./image/IMG_0725.JPG" alt="Life log photo 15" loading="lazy" decoding="async">
-            <img src="./image/IMG_0917.JPG" alt="Life log photo 16" loading="lazy" decoding="async">
-            <img src="./image/IMG_0922.JPG" alt="Life log photo 17" loading="lazy" decoding="async">
-            <img src="./image/IMG_0923.JPG" alt="Life log photo 18" loading="lazy" decoding="async">
-            <img src="./image/IMG_0998.JPG" alt="Life log photo 19" loading="lazy" decoding="async">
-            <img src="./image/IMG_0999.JPG" alt="Life log photo 20" loading="lazy" decoding="async">
-            <img src="./image/IMG_1001.JPG" alt="Life log photo 21" loading="lazy" decoding="async">
-            <img src="./image/IMG_1002.JPG" alt="Life log photo 22" loading="lazy" decoding="async">
-            <img src="./image/IMG_1003.JPG" alt="Life log photo 23" loading="lazy" decoding="async">
-            <img src="./image/IMG_1004.JPG" alt="Life log photo 24" loading="lazy" decoding="async">
-            <img src="./image/IMG_1005.JPG" alt="Life log photo 25" loading="lazy" decoding="async">
-            <img src="./image/IMG_1006.JPG" alt="Life log photo 26" loading="lazy" decoding="async">
-            <img src="./image/IMG_1007.JPG" alt="Life log photo 27" loading="lazy" decoding="async">
-            <img src="./image/IMG_1008.JPG" alt="Life log photo 28" loading="lazy" decoding="async">
-            <img src="./image/IMG_1009.JPG" alt="Life log photo 29" loading="lazy" decoding="async">
-            <img src="./image/IMG_1010.JPG" alt="Life log photo 30" loading="lazy" decoding="async">
+            <figure>
+              <img src="./image/IMG_0725.JPG" alt="친구와 함께" loading="lazy" decoding="async">
+              <figcaption>제목: 친구와 함께<br>년도: 2026</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_0999%201.jpg" alt="에그타르트" loading="lazy" decoding="async">
+              <figcaption>제목: 에그타르트<br>년도: 2025</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1001.JPG" alt="일본여행 해리포터 스튜디오" loading="lazy" decoding="async">
+              <figcaption>제목: 일본여행 - 해리포터 스튜디오<br>년도: 2024</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1003.JPG" alt="지브리스튜디오" loading="lazy" decoding="async">
+              <figcaption>제목: 지브리스튜디오<br>년도: 2024</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1004.JPG" alt="친구와 함께" loading="lazy" decoding="async">
+              <figcaption>제목: 친구와 함께<br>년도: 2024</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1005.JPG" alt="강화도" loading="lazy" decoding="async">
+              <figcaption>제목: 강화도<br>년도: 2023</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1006.JPG" alt="친구와 함께 미용실에서" loading="lazy" decoding="async">
+              <figcaption>제목: 친구와 함께 미용실에서<br>년도: 2023</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1010.JPG" alt="뮤지컬관람" loading="lazy" decoding="async">
+              <figcaption>제목: 뮤지컬관람<br>년도: 2022</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1009.JPG" alt="국제교류회 벚꽃구경" loading="lazy" decoding="async">
+              <figcaption>제목: 국제교류회 벚꽃구경<br>년도: 2011</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562_07.jpg" alt="뮤지컬관람" loading="lazy" decoding="async">
+              <figcaption>제목: 뮤지컬관람<br>년도: 2025</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562%201.jpg" alt="케이크 만들기" loading="lazy" decoding="async">
+              <figcaption>제목: 케이크 만들기<br>년도: 2026</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562_06.jpg" alt="뮤지컬관람" loading="lazy" decoding="async">
+              <figcaption>제목: 뮤지컬관람<br>년도: 2025</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/IMG_1007.JPG" alt="뮤지컬관람" loading="lazy" decoding="async">
+              <figcaption>제목: 뮤지컬관람<br>년도: 2025</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562_08.jpg" alt="라이브 공연관람" loading="lazy" decoding="async">
+              <figcaption>제목: 라이브 공연관람<br>년도: 2025</figcaption>
+            </figure>
+            <figure>
+              <img src="./image/KakaoTalk_20260905_231129562_09.jpg" alt="라이브 공연관람" loading="lazy" decoding="async">
+              <figcaption>제목: 라이브 공연관람<br>년도: 2024</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -426,14 +479,37 @@
         <p class="contact-panel__eyebrow" id="contact-title">Contact</p>
         <p class="contact-panel__title">LET’S WORK TOGETHER</p>
         <p class="contact-panel__description">새로운 프로젝트와 기회를 기다리고 있습니다.</p>
-        <div class="contact-panel__labels">
-          <div class="contact-panel__column">
-            <span class="contact-panel__label">PHONE</span>
-            <span class="contact-panel__value">010.3531.7769</span>
-          </div>
-          <div class="contact-panel__column">
-            <span class="contact-panel__label">EMAIL</span>
-            <span class="contact-panel__value">unnyappy87@gmail.com</span>
+        <div class="contact-panel__body">
+          <form class="contact-form" id="contact-form">
+            <div class="contact-form__group">
+              <label for="name">이름</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="contact-form__group">
+              <label for="email">이메일 주소</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="contact-form__group">
+              <label for="subject">제목</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="contact-form__group">
+              <label for="message">내용</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="g-recaptcha contact-form__recaptcha" data-sitekey="6Ldhu60tAAAAAOKM0ukFLjTWcdLr3m88095qsxwO"></div>
+            <button class="contact-form__submit" type="submit">전송하기</button>
+            <p class="contact-form__status" id="status" aria-live="polite"></p>
+          </form>
+          <div class="contact-panel__labels">
+            <div class="contact-panel__column">
+              <span class="contact-panel__label">PHONE</span>
+              <span class="contact-panel__value">010.3531.7769</span>
+            </div>
+            <div class="contact-panel__column">
+              <span class="contact-panel__label">EMAIL</span>
+              <span class="contact-panel__value">unnyappy87@gmail.com</span>
+            </div>
           </div>
         </div>
       </section>
@@ -447,7 +523,9 @@
     <script src="./assets/js/vendor/gsap.min.js"></script>
     <script src="./assets/js/vendor/scrolltrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
-    <script src="./assets/js/main.js?v=modal-close-smooth-20260906"></script>
+    <script src="./assets/js/main.js?v=gallery-caption-font-20260909"></script>
   </body>
 </html>
