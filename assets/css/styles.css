@@ -752,6 +752,11 @@ button.button {
   object-fit: cover;
 }
 
+.project-panel__image--pulmuone-site img {
+  transform: scale(1.35);
+  transform-origin: center;
+}
+
 .project-panel__image--placeholder {
   display: flex;
   align-items: center;
@@ -1033,7 +1038,7 @@ button.button {
 .skills-section__description {
   width: min(1340px, 100%);
   margin: 0 auto 42px;
-  color: var(--color-accent-blue);
+  color: #4a5568;
   font-family: var(--font-korean);
   font-size: 16px;
   font-weight: 500;
