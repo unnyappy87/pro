@@ -1661,8 +1661,8 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
 
 @media (max-width: 1100px) {
   .site-header {
-    height: auto;
-    min-height: 180px;
+    height: 122px;
+    min-height: 122px;
     padding: 20px;
   }
 
@@ -1676,10 +1676,10 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   }
 
   .site-nav {
-    flex-wrap: wrap;
-    height: auto;
-    min-height: 88px;
-    gap: 16px;
+    flex-wrap: nowrap;
+    height: 72px;
+    min-height: 72px;
+    gap: 18px;
     padding: 16px;
   }
 
@@ -1691,18 +1691,25 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   }
 
   .site-nav__menu {
-    order: 2;
-    width: 100%;
-    margin-left: 0;
+    width: auto;
+    margin-left: auto;
     gap: 20px;
-    flex-wrap: wrap;
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .site-nav__search,
+  .button--nav {
+    display: none;
   }
 
   .site-sub-nav {
-    height: auto;
-    flex-wrap: wrap;
-    gap: 10px 18px;
+    height: 30px;
+    flex-wrap: nowrap;
+    gap: 18px;
     margin-top: 8px;
+    overflow: hidden;
   }
 
   .site-sub-nav__divider {
@@ -1738,6 +1745,7 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
     grid-template-columns: 1fr;
     gap: 32px;
     padding: 42px 28px;
+    min-height: 0;
   }
 
   .project-panel--reverse .project-panel__image {
@@ -1749,8 +1757,8 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   }
 
   .gallery-section__grid {
-    grid-template-columns: repeat(2, minmax(0, 260px));
-    display: grid;
+    display: flex;
+    width: max-content;
   }
 
   .skills-section__title {
@@ -1790,11 +1798,17 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   }
 
   .site-header {
+    height: 96px;
+    min-height: 96px;
     padding: 14px;
   }
 
   .site-nav {
-    gap: 12px;
+    height: 68px;
+    min-height: 68px;
+    gap: 10px;
+    padding: 7px 12px;
+    overflow: hidden;
   }
 
   .site-nav__logo,
@@ -1809,7 +1823,29 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   }
 
   .site-nav__menu {
-    gap: 12px 18px;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .site-nav__menu li {
+    flex: 0 0 auto;
+  }
+
+  .site-nav__menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav__link {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .site-sub-nav {
+    display: none;
   }
 
   .hero-section__title,
@@ -1850,6 +1886,38 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
     flex-wrap: wrap;
   }
 
+  .project-panel,
+  .project-panel--reverse {
+    width: 100%;
+    gap: 24px;
+    margin-top: 28px;
+    padding: 28px 16px;
+  }
+
+  .projects-section__viewport {
+    overflow: visible;
+  }
+
+  .projects-section__track {
+    display: block;
+    width: 100%;
+  }
+
+  .projects-section__track .project-panel {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .project-panel__copy h3 {
+    margin: 20px 0;
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .project-panel__image {
+    height: 240px;
+  }
+
   .badge--wide {
     width: auto;
     max-width: 100%;
@@ -1859,6 +1927,7 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   .project-panel__specs li {
     flex-direction: column;
     gap: 2px;
+    margin-bottom: 14px;
   }
 
   .personal-card {
@@ -1871,14 +1940,16 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   }
 
   .gallery-section__grid {
-    grid-template-columns: 1fr;
-    width: min(300px, 100%);
-    margin: 0 auto;
+    display: flex;
+    width: max-content;
+    gap: 18px;
+    margin: 0;
+    padding: 0 14px;
   }
 
   .gallery-section__grid figure {
-    width: 100%;
-    flex-basis: auto;
+    width: min(340px, calc(100vw - 40px));
+    flex: 0 0 min(340px, calc(100vw - 40px));
   }
 
   .pictures-section__viewport {
@@ -1890,7 +1961,13 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   }
 
   .gallery-section__viewport {
-    overflow: visible;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .gallery-section__viewport::-webkit-scrollbar {
+    display: none;
   }
 
   .gallery-section__pattern {
@@ -2004,3 +2081,4 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
     animation-iteration-count: 1 !important;
   }
 }
+
