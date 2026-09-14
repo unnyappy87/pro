@@ -56,8 +56,8 @@
       </div>
     </header>
 
-    <main id="home" class="page-main">
-      <section class="hero-section" aria-labelledby="hero-title" data-node-id="6985:2469">
+    <main class="page-main">
+      <section class="hero-section" id="home" data-nav-section="home" aria-labelledby="hero-title" data-node-id="6985:2469">
         <div class="section-container hero-section__container">
           <div class="hero-section__copy">
             <p class="badge hero-section__badge">WEB PUBLISHER · DESIGN · MOTION</p>
@@ -68,10 +68,10 @@
                 <img src="./assets/icons/github-button-icon.svg" alt="" aria-hidden="true">
                 <span><span class="font-poppins">GitHub</span> 보기</span>
               </a>
-              <button class="button button--light" type="button" data-static-action>
+              <a class="button button--light" href="./2026이력서.pdf" target="_blank" rel="noopener noreferrer">
                 <img src="./assets/icons/resume-button-icon.svg" alt="" aria-hidden="true">
                 <span>이력서 보기</span>
-              </button>
+              </a>
             </div>
           </div>
           <div class="hero-portrait" aria-label="Profile photo">
@@ -82,7 +82,7 @@
         </div>
       </section>
 
-      <section class="about-section" id="about" aria-labelledby="about-title" data-node-id="7140:2104">
+      <section class="about-section" id="about" data-nav-section="about" aria-labelledby="about-title" data-node-id="7140:2104">
         <div class="section-container">
           <div class="section-heading">
             <p class="section-heading__eyebrow">PORTFOLIO PROFILE</p>
@@ -146,7 +146,7 @@
         </div>
       </section>
 
-      <section class="projects-section" id="projects" aria-labelledby="projects-title" data-node-id="6985:2704">
+      <section class="projects-section" id="projects" data-nav-section="projects" aria-labelledby="projects-title" data-node-id="6985:2704">
         <div class="section-container">
           <div class="section-heading projects-section__heading">
             <h2 class="section-heading__title" id="projects-title">TEAM PROJECTS</h2>
@@ -320,7 +320,7 @@
         </div>
       </section>
 
-      <section class="skills-section" id="skills" aria-labelledby="skills-title">
+      <section class="skills-section" id="skills" data-nav-section="skills" aria-labelledby="skills-title">
         <div class="section-container">
           <h2 class="skills-section__title" id="skills-title">Skills</h2>
           <p class="skills-section__description">디자인, 웹 퍼블리싱, 영상 제작에 필요한 다양한 툴과 기술을 활용할 수 있습니다.</p>
@@ -403,7 +403,7 @@
         </div>
       </section>
 
-      <section class="gallery-section" id="gallery" aria-labelledby="gallery-title" data-node-id="7217:86">
+      <section class="gallery-section" id="gallery" data-nav-section="gallery" aria-labelledby="gallery-title" data-node-id="7217:86">
         <img class="gallery-section__pattern" src="./assets/images/gallery-pattern.svg" alt="" aria-hidden="true">
         <h2 id="gallery-title">LIFE LOG</h2>
         <p>여행부터 취미까지, 일상 속 다양한 순간을 기록합니다.</p>
@@ -474,7 +474,7 @@
       </section>
     </main>
 
-    <footer class="site-footer" id="contact" data-node-id="6985:3183">
+    <footer class="site-footer" id="contact" data-nav-section="contact" data-node-id="6985:3183">
       <section class="contact-panel" aria-labelledby="contact-title">
         <p class="contact-panel__eyebrow" id="contact-title">Contact</p>
         <p class="contact-panel__title">LET’S WORK TOGETHER</p>
@@ -526,6 +526,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
-    <script src="./assets/js/main.js?v=mobile-layout-fix-20260911"></script>
+    <script src="./assets/js/main.js?v=nav-section-link-fix-20260914"></script>
   </body>
 </html>

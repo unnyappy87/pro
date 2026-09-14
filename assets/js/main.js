@@ -4,10 +4,40 @@ const sectionIds = navLinks
   .filter((href) => href && href.startsWith("#"))
   .map((href) => href.slice(1));
 const sections = sectionIds
-  .map((id) => document.getElementById(id))
+  .map((id) => document.querySelector(`[data-nav-section="${id}"]`) || document.getElementById(id))
   .filter(Boolean);
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const interactiveSelector = "a, button, input, textarea, select, label, [data-static-action]";
+let pendingNavTarget = null;
+let pendingNavTimer = 0;
+
+function getNavTarget(targetId) {
+  return document.querySelector(`[data-nav-section="${targetId}"]`) || document.getElementById(targetId);
+}
+
+function settleNavScroll(target, targetId, attempt = 0) {
+  const delta = target.getBoundingClientRect().top;
+
+  if (Math.abs(delta) > 4) {
+    window.scrollTo({
+      top: window.scrollY + delta,
+      behavior: "auto",
+    });
+  }
+
+  if (attempt < 18) {
+    window.setTimeout(() => settleNavScroll(target, targetId, attempt + 1), 90);
+    return;
+  }
+
+  setActiveNavLink(targetId);
+  window.clearTimeout(pendingNavTimer);
+  pendingNavTimer = window.setTimeout(() => {
+    if (pendingNavTarget === targetId) {
+      pendingNavTarget = null;
+    }
+  }, 500);
+}
 
 function setActiveNavLink(activeId) {
   navLinks.forEach((link) => {
@@ -23,24 +53,33 @@ function setActiveNavLink(activeId) {
 }
 
 function scrollToTarget(targetId) {
-  const target = document.getElementById(targetId);
+  const target = getNavTarget(targetId);
 
   if (!target) {
     return;
   }
 
-  target.scrollIntoView({
-    behavior: prefersReducedMotion.matches ? "auto" : "smooth",
-    block: "start",
-  });
+  if (window.ScrollTrigger && typeof ScrollTrigger.refresh === "function") {
+    ScrollTrigger.refresh();
+  }
+
+  pendingNavTarget = targetId;
   setActiveNavLink(targetId);
+
+  window.scrollTo({
+    top: target.getBoundingClientRect().top + window.scrollY,
+    behavior: "auto",
+  });
+
+  window.clearTimeout(pendingNavTimer);
+  pendingNavTimer = window.setTimeout(() => settleNavScroll(target, targetId), 90);
 }
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (event) => {
     const targetId = anchor.getAttribute("href").slice(1);
 
-    if (!document.getElementById(targetId)) {
+    if (!getNavTarget(targetId)) {
       return;
     }
 
@@ -52,6 +91,11 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 const observer = new IntersectionObserver(
   (entries) => {
+    if (pendingNavTarget) {
+      setActiveNavLink(pendingNavTarget);
+      return;
+    }
+
     const visibleEntry = entries
       .filter((entry) => entry.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
