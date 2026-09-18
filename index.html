@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="./assets/css/styles.css?v=search-modal-20260918">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=language-switcher-20260918">
   </head>
   <body>
     <a class="skip-link" href="#home">본문으로 이동</a>
@@ -45,7 +45,11 @@
           <img src="./assets/icons/nav-search-icon.svg" alt="">
         </button>
         <span class="site-nav__divider site-nav__divider--right" aria-hidden="true"></span>
-        <span class="site-nav__language">Korean</span>
+        <div class="site-nav__language" aria-label="Language selector">
+          <button class="site-nav__language-option is-active" type="button" data-lang-option="ko" aria-pressed="true">KOR</button>
+          <button class="site-nav__language-option" type="button" data-lang-option="en" aria-pressed="false">ENG</button>
+          <button class="site-nav__language-option" type="button" data-lang-option="ja" aria-pressed="false">JPN</button>
+        </div>
         <a class="button button--nav" href="#contact">Contact me</a>
       </nav>
       <div class="site-sub-nav" aria-label="Portfolio status">
@@ -426,6 +430,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
-    <script src="./assets/js/main.js?v=search-modal-20260918"></script>
+    <script src="./assets/js/main.js?v=language-switcher-20260918"></script>
   </body>
 </html>

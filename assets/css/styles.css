@@ -224,7 +224,6 @@ a {
 }
 
 .site-nav__quick-link,
-.site-nav__language,
 .site-nav__link {
   font-family: var(--font-primary);
   font-size: var(--text-poppins-medium-14-size);
@@ -283,7 +282,33 @@ a {
 }
 
 .site-nav__language {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   margin-left: 17px;
+  padding: 3px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-default);
+  background: var(--color-bg-action);
+}
+
+.site-nav__language-option {
+  min-width: 38px;
+  height: 28px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-text-surface);
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-nav__language-option.is-active {
+  background: var(--color-text-dark);
+  color: var(--color-bg-white);
 }
 
 .site-search {
