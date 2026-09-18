@@ -282,28 +282,85 @@ a {
 }
 
 .site-nav__language {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
+  position: relative;
   margin-left: 17px;
-  padding: 3px;
+}
+
+.site-nav__language-toggle,
+.site-nav__language-option {
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-default);
   background: var(--color-bg-action);
+  color: var(--color-text-surface);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-nav__language-toggle {
+  position: relative;
+  min-width: 96px;
+  height: 36px;
+  padding: 0 28px 0 12px;
+  text-align: left;
+}
+
+.site-nav__language-toggle::after {
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform var(--motion-fast);
+  content: "";
+}
+
+.site-nav__language.is-open .site-nav__language-toggle::after {
+  transform: translateY(-35%) rotate(225deg);
+}
+
+.site-nav__language-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  width: 132px;
+  padding: 6px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-default);
+  background: var(--color-bg-white);
+  box-shadow: var(--shadow-header-bar);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity var(--motion-fast), visibility var(--motion-fast), transform var(--motion-fast);
+}
+
+.site-nav__language.is-open .site-nav__language-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .site-nav__language-option {
-  min-width: 38px;
-  height: 28px;
-  border: 0;
-  border-radius: 4px;
-  background: transparent;
-  color: var(--color-text-surface);
-  font-family: var(--font-primary);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
+  width: 100%;
+  height: 34px;
+  border-color: transparent;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.site-nav__language-option:hover,
+.site-nav__language-option:focus-visible {
+  border-color: var(--color-highlight);
 }
 
 .site-nav__language-option.is-active {

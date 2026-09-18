@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="./assets/css/styles.css?v=language-switcher-20260918">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=language-dropdown-20260918">
   </head>
   <body>
     <a class="skip-link" href="#home">본문으로 이동</a>
@@ -46,9 +46,14 @@
         </button>
         <span class="site-nav__divider site-nav__divider--right" aria-hidden="true"></span>
         <div class="site-nav__language" aria-label="Language selector">
-          <button class="site-nav__language-option is-active" type="button" data-lang-option="ko" aria-pressed="true">KOR</button>
-          <button class="site-nav__language-option" type="button" data-lang-option="en" aria-pressed="false">ENG</button>
-          <button class="site-nav__language-option" type="button" data-lang-option="ja" aria-pressed="false">JPN</button>
+          <button class="site-nav__language-toggle" type="button" aria-haspopup="listbox" aria-expanded="false" data-language-toggle>
+            <span data-language-current>Korean</span>
+          </button>
+          <div class="site-nav__language-menu" role="listbox" aria-label="Language options">
+            <button class="site-nav__language-option is-active" type="button" role="option" data-lang-option="ko" aria-selected="true">Korean</button>
+            <button class="site-nav__language-option" type="button" role="option" data-lang-option="en" aria-selected="false">English</button>
+            <button class="site-nav__language-option" type="button" role="option" data-lang-option="ja" aria-selected="false">日本語</button>
+          </div>
         </div>
         <a class="button button--nav" href="#contact">Contact me</a>
       </nav>
@@ -430,6 +435,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
-    <script src="./assets/js/main.js?v=language-switcher-20260918"></script>
+    <script src="./assets/js/main.js?v=language-dropdown-20260918"></script>
   </body>
 </html>

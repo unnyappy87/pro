@@ -8,6 +8,9 @@ const sections = sectionIds
   .filter(Boolean);
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const interactiveSelector = "a, button, input, textarea, select, label, [data-static-action]";
+const languageSelector = document.querySelector(".site-nav__language");
+const languageToggle = document.querySelector("[data-language-toggle]");
+const languageCurrent = document.querySelector("[data-language-current]");
 const languageButtons = Array.from(document.querySelectorAll("[data-lang-option]"));
 const storedLanguage = window.localStorage ? localStorage.getItem("portfolioLanguage") : null;
 let currentLanguage = ["ko", "en", "ja"].includes(storedLanguage) ? storedLanguage : "ko";
@@ -17,6 +20,7 @@ let pendingNavTimer = 0;
 const translations = {
   ko: {
     htmlLang: "ko",
+    languageLabel: "Korean",
     searchEmpty: "검색 결과가 없습니다.",
     formStatus: {
       sending: "전송 중입니다.",
@@ -108,6 +112,7 @@ const translations = {
   },
   en: {
     htmlLang: "en",
+    languageLabel: "English",
     searchEmpty: "No results found.",
     formStatus: {
       sending: "Sending...",
@@ -199,6 +204,7 @@ const translations = {
   },
   ja: {
     htmlLang: "ja",
+    languageLabel: "日本語",
     searchEmpty: "検索結果がありません。",
     formStatus: {
       sending: "送信中です。",
@@ -309,6 +315,9 @@ function applyLanguage(language) {
 
   currentLanguage = language;
   document.documentElement.lang = dictionary.htmlLang;
+  if (languageCurrent) {
+    languageCurrent.textContent = dictionary.languageLabel;
+  }
 
   Object.entries(dictionary.selectors).forEach(([selector, content]) => {
     setContent(selector, content);
@@ -321,7 +330,7 @@ function applyLanguage(language) {
   languageButtons.forEach((button) => {
     const isActive = button.dataset.langOption === language;
     button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
+    button.setAttribute("aria-selected", String(isActive));
   });
 
   if (window.localStorage) {
@@ -331,6 +340,24 @@ function applyLanguage(language) {
   if (searchDialog && searchDialog.classList.contains("is-open")) {
     renderSearchResults(searchInput.value);
   }
+}
+
+function closeLanguageMenu() {
+  if (!languageSelector || !languageToggle) {
+    return;
+  }
+
+  languageSelector.classList.remove("is-open");
+  languageToggle.setAttribute("aria-expanded", "false");
+}
+
+function toggleLanguageMenu() {
+  if (!languageSelector || !languageToggle) {
+    return;
+  }
+
+  const isOpen = languageSelector.classList.toggle("is-open");
+  languageToggle.setAttribute("aria-expanded", String(isOpen));
 }
 
 function getNavTarget(targetId) {
@@ -540,7 +567,32 @@ if (searchButton && searchDialog && searchInput) {
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     applyLanguage(button.dataset.langOption);
+    closeLanguageMenu();
+    if (languageToggle) {
+      languageToggle.focus();
+    }
   });
+});
+
+if (languageToggle) {
+  languageToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleLanguageMenu();
+  });
+}
+
+if (languageSelector) {
+  languageSelector.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+}
+
+document.addEventListener("click", closeLanguageMenu);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeLanguageMenu();
+  }
 });
 
 applyLanguage(currentLanguage);
