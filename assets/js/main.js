@@ -114,10 +114,113 @@ const observer = new IntersectionObserver(
 sections.forEach((section) => observer.observe(section));
 
 const searchButton = document.querySelector(".site-nav__search");
+const searchDialog = document.getElementById("site-search");
+const searchInput = document.getElementById("site-search-input");
+const searchResults = searchDialog ? searchDialog.querySelector("[data-search-results]") : null;
+const searchCloseButton = searchDialog ? searchDialog.querySelector(".site-search__close") : null;
+const searchItems = [
+  { title: "Home", meta: "첫 화면", targetId: "home", keywords: "home intro portfolio main" },
+  { title: "About Me", meta: "인적사항과 교육사항", targetId: "about", keywords: "about profile education personal" },
+  { title: "Skills", meta: "디자인, 퍼블리싱, 모션 역량", targetId: "skills", keywords: "skills design web publishing motion figma html css javascript" },
+  { title: "Team Projects", meta: "팀 프로젝트 섹션", targetId: "projects", keywords: "projects team pulmuone redesign ui ux website" },
+  { title: "풀무원 웹사이트 리디자인", meta: "팀 프로젝트 01", targetId: "projects", keywords: "pulmuone website redesign site team" },
+  { title: "풀무원 UI/UX 리디자인", meta: "팀 프로젝트 02", targetId: "projects", keywords: "pulmuone ui ux redesign figma team" },
+  { title: "Gallery", meta: "작업 이미지 모음", targetId: "gallery", keywords: "gallery images pictures portfolio" },
+  { title: "Contact", meta: "연락처와 문의 폼", targetId: "contact", keywords: "contact email phone message" },
+];
 
-if (searchButton) {
+function renderSearchResults(query = "") {
+  if (!searchResults) {
+    return;
+  }
+
+  const normalizedQuery = query.trim().toLowerCase();
+  const matchedItems = normalizedQuery
+    ? searchItems.filter((item) => {
+        const haystack = `${item.title} ${item.meta} ${item.keywords}`.toLowerCase();
+        return haystack.includes(normalizedQuery);
+      })
+    : searchItems.slice(0, 6);
+
+  searchResults.replaceChildren();
+
+  if (!matchedItems.length) {
+    const empty = document.createElement("span");
+    empty.className = "site-search__empty";
+    empty.textContent = "검색 결과가 없습니다.";
+    searchResults.append(empty);
+    return;
+  }
+
+  matchedItems.forEach((item) => {
+    const resultButton = document.createElement("button");
+    const title = document.createElement("span");
+    const meta = document.createElement("span");
+
+    resultButton.className = "site-search__result";
+    resultButton.type = "button";
+    title.className = "site-search__result-title";
+    meta.className = "site-search__result-meta";
+    title.textContent = item.title;
+    meta.textContent = item.meta;
+
+    resultButton.append(title, meta);
+    resultButton.addEventListener("click", () => {
+      closeSearch();
+      scrollToTarget(item.targetId);
+      history.pushState(null, "", `#${item.targetId}`);
+    });
+
+    searchResults.append(resultButton);
+  });
+}
+
+function openSearch() {
+  if (!searchDialog || !searchInput) {
+    return;
+  }
+
+  searchDialog.classList.add("is-open");
+  searchDialog.setAttribute("aria-hidden", "false");
+  document.body.classList.add("is-search-open");
+  renderSearchResults(searchInput.value);
+
+  window.setTimeout(() => {
+    searchInput.focus();
+    searchInput.select();
+  }, 40);
+}
+
+function closeSearch() {
+  if (!searchDialog) {
+    return;
+  }
+
+  searchDialog.classList.remove("is-open");
+  searchDialog.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("is-search-open");
+  if (searchButton) {
+    searchButton.focus();
+  }
+}
+
+if (searchButton && searchDialog && searchInput) {
   searchButton.addEventListener("click", () => {
-    searchButton.blur();
+    openSearch();
+  });
+
+  searchCloseButton.addEventListener("click", closeSearch);
+  searchInput.addEventListener("input", () => renderSearchResults(searchInput.value));
+  searchDialog.addEventListener("click", (event) => {
+    if (event.target === searchDialog) {
+      closeSearch();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && searchDialog.classList.contains("is-open")) {
+      closeSearch();
+    }
   });
 }
 

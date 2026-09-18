@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="./assets/css/styles.css?v=about-profile-labels-20260914">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=search-modal-20260918">
   </head>
   <body>
     <a class="skip-link" href="#home">본문으로 이동</a>
@@ -55,6 +55,18 @@
         <span class="site-sub-nav__links">GitHub　Resume　Email</span>
       </div>
     </header>
+
+    <div class="site-search" id="site-search" role="dialog" aria-modal="true" aria-labelledby="site-search-title" aria-hidden="true">
+      <div class="site-search__panel">
+        <div class="site-search__header">
+          <h2 class="site-search__title" id="site-search-title">검색</h2>
+          <button class="site-search__close" type="button" aria-label="검색 닫기">닫기</button>
+        </div>
+        <label class="site-search__label" for="site-search-input">검색어</label>
+        <input class="site-search__input" id="site-search-input" type="search" autocomplete="off" placeholder="섹션 또는 프로젝트 검색">
+        <div class="site-search__results" data-search-results></div>
+      </div>
+    </div>
 
     <main class="page-main">
       <section class="hero-section" id="home" data-nav-section="home" aria-labelledby="hero-title" data-node-id="6985:2469">
@@ -414,6 +426,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
-    <script src="./assets/js/main.js?v=nav-section-link-fix-20260914"></script>
+    <script src="./assets/js/main.js?v=search-modal-20260918"></script>
   </body>
 </html>
