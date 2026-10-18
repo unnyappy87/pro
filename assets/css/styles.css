@@ -1235,6 +1235,99 @@ button.button {
   line-height: 18px;
 }
 
+.nova-card__server-note {
+  margin: -6px 0 0;
+  color: var(--color-text-surface);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+.nova-card__details {
+  display: grid;
+  gap: 20px;
+}
+
+.nova-card__details section {
+  padding: 20px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-default);
+  background: var(--color-bg-off-white);
+}
+
+.nova-card__details h4 {
+  margin: 0 0 10px;
+  color: var(--color-text-dark);
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.nova-card__details p,
+.nova-card__feature-list {
+  margin: 0;
+  color: var(--color-text-surface);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  word-break: keep-all;
+}
+
+.nova-card__feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.nova-card__feature-list li {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-white);
+  color: var(--color-accent-blue);
+}
+
+.nova-card__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nova-card__gallery:empty {
+  display: none;
+}
+
+.nova-card__gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-default);
+  background: var(--color-bg-off-white);
+}
+
+.nova-card__gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.nova-card__gallery figcaption {
+  padding: 10px 12px;
+  color: var(--color-text-surface);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.nova-card a:focus-visible {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 3px;
+}
+
 .skills-section {
   padding: 0 0 92px;
   background: var(--color-bg-section);
@@ -2157,6 +2250,14 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   .personal-card__specs li {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .nova-card__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-card__details section {
+    padding: 16px;
   }
 
   .gallery-section__grid {

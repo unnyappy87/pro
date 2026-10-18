@@ -17,6 +17,61 @@ let currentLanguage = ["ko", "en", "ja"].includes(storedLanguage) ? storedLangua
 let pendingNavTarget = null;
 let pendingNavTimer = 0;
 
+const NOVA_PROJECT_MEDIA = {
+  images: [],
+  placeholder: "./assets/images/nova-placeholder.svg",
+};
+
+function initNovaProjectMedia() {
+  const thumbnail = document.querySelector("[data-nova-thumbnail]");
+  const gallery = document.querySelector("[data-nova-gallery]");
+
+  if (!thumbnail || !gallery) {
+    return;
+  }
+
+  const createImage = (src, index, isThumbnail = false) => {
+    const image = document.createElement("img");
+
+    image.src = src;
+    image.alt = `NOVA 챗봇 목업 화면 ${index + 1}`;
+    image.decoding = "async";
+    if (!isThumbnail) {
+      image.loading = "lazy";
+    }
+
+    return image;
+  };
+
+  thumbnail.replaceChildren();
+  gallery.replaceChildren();
+
+  if (!NOVA_PROJECT_MEDIA.images.length) {
+    const placeholderImage = document.createElement("img");
+    const placeholderCaption = document.createElement("figcaption");
+
+    placeholderImage.src = NOVA_PROJECT_MEDIA.placeholder;
+    placeholderImage.alt = "NOVA 챗봇 목업 준비 중";
+    placeholderImage.decoding = "async";
+    placeholderCaption.textContent = "NOVA 챗봇 목업 준비 중";
+    thumbnail.append(placeholderImage, placeholderCaption);
+    return;
+  }
+
+  thumbnail.append(createImage(NOVA_PROJECT_MEDIA.images[0], 0, true));
+
+  NOVA_PROJECT_MEDIA.images.slice(1).forEach((src, galleryIndex) => {
+    const imageIndex = galleryIndex + 1;
+    const figure = document.createElement("figure");
+    const caption = document.createElement("figcaption");
+
+    figure.append(createImage(src, imageIndex));
+    caption.textContent = `NOVA 챗봇 목업 화면 ${imageIndex + 1}`;
+    figure.append(caption);
+    gallery.append(figure);
+  });
+}
+
 const translations = {
   ko: {
     htmlLang: "ko",
@@ -41,6 +96,7 @@ const translations = {
       ".site-nav__link[href='#about']": "About",
       ".site-nav__link[href='#skills']": "Skills",
       ".site-nav__link[href='#projects']": "Projects",
+      ".site-nav__link[href='#personal-projects']": "개인 프로젝트",
       ".site-nav__link[href='#gallery']": "Gallery",
       ".site-nav__link[href='#contact']": "Contact",
       ".button--nav": "Contact me",
@@ -73,6 +129,8 @@ const translations = {
       ".about-section .profile-card:nth-of-type(3) .profile-card__body": '<p><strong>취득날짜</strong> : <span class="font-poppins">2016.07</span><br><strong>자격명</strong> : <span class="font-poppins">DIAT</span>-스프레드시트<br><strong>주최처</strong> : 한국정보통신진흥협회</p><p><strong>취득날짜</strong> : <span class="font-poppins">2017.03</span><br><strong>자격명</strong> : 전산회계 <span class="font-poppins">1</span>급<br><strong>주최처</strong> : 한국세무사회</p><p><strong>취득날짜</strong> : <span class="font-poppins">2018.01</span><br><strong>자격명</strong> : <span class="font-poppins">JLPT N2</span><br><strong>주최처</strong> : 공익재단법인 일본국제교육지원협회</p><p><strong>취득날짜</strong> : <span class="font-poppins">2023.07</span><br><strong>자격명</strong> : <span class="font-poppins">GTQ</span> 포토샵 <span class="font-poppins">1</span>급<br><strong>주최처</strong> : 한국생산성본부</p>',
       "#projects-title": "TEAM PROJECTS",
       ".projects-section__heading .section-heading__description": "팀원들과 기획부터 제작까지 함께하며<br>협업 과정 속에서 완성한 프로젝트입니다.",
+      "#personal-projects-title": "PERSONAL PROJECTS",
+      ".personal-section__heading .section-heading__description": "기획부터 디자인, 개발과 배포까지<br>직접 완성한 개인 프로젝트입니다.",
       ".projects-section .project-panel:nth-of-type(1) h3": "풀무원 웹사이트 리디자인",
       ".projects-section .project-panel:nth-of-type(1) .project-button--light": "기획서 보기",
       ".projects-section .project-panel:nth-of-type(1) .project-button--dark": "사이트 보기",
@@ -106,6 +164,7 @@ const translations = {
       { title: "Team Projects", meta: "팀 프로젝트 섹션", targetId: "projects", keywords: "projects team pulmuone redesign ui ux website" },
       { title: "풀무원 웹사이트 리디자인", meta: "팀 프로젝트 01", targetId: "projects", keywords: "pulmuone website redesign site team" },
       { title: "풀무원 UI/UX 리디자인", meta: "팀 프로젝트 02", targetId: "projects", keywords: "pulmuone ui ux redesign figma team" },
+      { title: "NOVA — 다국어 AI 챗봇", meta: "개인 프로젝트", targetId: "personal-projects", keywords: "nova personal ai chatbot react fastapi qwen" },
       { title: "Gallery", meta: "작업 이미지 모음", targetId: "gallery", keywords: "gallery images pictures portfolio" },
       { title: "Contact", meta: "연락처와 문의 폼", targetId: "contact", keywords: "contact email phone message" },
     ],
@@ -133,6 +192,7 @@ const translations = {
       ".site-nav__link[href='#about']": "About",
       ".site-nav__link[href='#skills']": "Skills",
       ".site-nav__link[href='#projects']": "Projects",
+      ".site-nav__link[href='#personal-projects']": "Personal",
       ".site-nav__link[href='#gallery']": "Gallery",
       ".site-nav__link[href='#contact']": "Contact",
       ".button--nav": "Contact me",
@@ -165,6 +225,8 @@ const translations = {
       ".about-section .profile-card:nth-of-type(3) .profile-card__body": '<p><strong>Date</strong> : <span class="font-poppins">2016.07</span><br><strong>Certification</strong> : <span class="font-poppins">DIAT</span> Spreadsheet<br><strong>Issuer</strong> : Korea Association for ICT Promotion</p><p><strong>Date</strong> : <span class="font-poppins">2017.03</span><br><strong>Certification</strong> : Computerized Accounting Level <span class="font-poppins">1</span><br><strong>Issuer</strong> : Korean Association of Certified Public Tax Accountants</p><p><strong>Date</strong> : <span class="font-poppins">2018.01</span><br><strong>Certification</strong> : <span class="font-poppins">JLPT N2</span><br><strong>Issuer</strong> : Japan Educational Exchanges and Services</p><p><strong>Date</strong> : <span class="font-poppins">2023.07</span><br><strong>Certification</strong> : <span class="font-poppins">GTQ</span> Photoshop Level <span class="font-poppins">1</span><br><strong>Issuer</strong> : Korea Productivity Center</p>',
       "#projects-title": "TEAM PROJECTS",
       ".projects-section__heading .section-heading__description": "Projects completed through teamwork,<br>from planning to production.",
+      "#personal-projects-title": "PERSONAL PROJECTS",
+      ".personal-section__heading .section-heading__description": "A personal project completed independently,<br>from planning and design to development and deployment.",
       ".projects-section .project-panel:nth-of-type(1) h3": "Pulmuone Website Redesign",
       ".projects-section .project-panel:nth-of-type(1) .project-button--light": "View Proposal",
       ".projects-section .project-panel:nth-of-type(1) .project-button--dark": "View Site",
@@ -198,6 +260,7 @@ const translations = {
       { title: "Team Projects", meta: "Team project section", targetId: "projects", keywords: "projects team pulmuone redesign ui ux website" },
       { title: "Pulmuone Website Redesign", meta: "Team Project 01", targetId: "projects", keywords: "pulmuone website redesign site team" },
       { title: "Pulmuone UI/UX Redesign", meta: "Team Project 02", targetId: "projects", keywords: "pulmuone ui ux redesign figma team" },
+      { title: "NOVA — Multilingual AI Chatbot", meta: "Personal Project", targetId: "personal-projects", keywords: "nova personal ai chatbot react fastapi qwen" },
       { title: "Gallery", meta: "Visual archive", targetId: "gallery", keywords: "gallery images pictures portfolio" },
       { title: "Contact", meta: "Contact information and form", targetId: "contact", keywords: "contact email phone message" },
     ],
@@ -225,6 +288,7 @@ const translations = {
       ".site-nav__link[href='#about']": "About",
       ".site-nav__link[href='#skills']": "Skills",
       ".site-nav__link[href='#projects']": "Projects",
+      ".site-nav__link[href='#personal-projects']": "個人プロジェクト",
       ".site-nav__link[href='#gallery']": "Gallery",
       ".site-nav__link[href='#contact']": "Contact",
       ".button--nav": "Contact me",
@@ -257,6 +321,8 @@ const translations = {
       ".about-section .profile-card:nth-of-type(3) .profile-card__body": '<p><strong>取得日</strong> : <span class="font-poppins">2016.07</span><br><strong>資格名</strong> : <span class="font-poppins">DIAT</span> スプレッドシート<br><strong>発行機関</strong> : 韓国情報通信振興協会</p><p><strong>取得日</strong> : <span class="font-poppins">2017.03</span><br><strong>資格名</strong> : 電算会計 <span class="font-poppins">1</span>級<br><strong>発行機関</strong> : 韓国税務士会</p><p><strong>取得日</strong> : <span class="font-poppins">2018.01</span><br><strong>資格名</strong> : <span class="font-poppins">JLPT N2</span><br><strong>発行機関</strong> : 日本国際教育支援協会</p><p><strong>取得日</strong> : <span class="font-poppins">2023.07</span><br><strong>資格名</strong> : <span class="font-poppins">GTQ</span> Photoshop <span class="font-poppins">1</span>級<br><strong>発行機関</strong> : 韓国生産性本部</p>',
       "#projects-title": "TEAM PROJECTS",
       ".projects-section__heading .section-heading__description": "企画から制作までチームで進め、<br>協業の中で完成させたプロジェクトです。",
+      "#personal-projects-title": "PERSONAL PROJECTS",
+      ".personal-section__heading .section-heading__description": "企画・デザインから開発・配布まで、<br>一人で完成させた個人プロジェクトです。",
       ".projects-section .project-panel:nth-of-type(1) h3": "プルムウォン Webサイトリデザイン",
       ".projects-section .project-panel:nth-of-type(1) .project-button--light": "企画書を見る",
       ".projects-section .project-panel:nth-of-type(1) .project-button--dark": "サイトを見る",
@@ -290,6 +356,7 @@ const translations = {
       { title: "Team Projects", meta: "チームプロジェクトセクション", targetId: "projects", keywords: "projects team pulmuone redesign ui ux website" },
       { title: "プルムウォン Webサイトリデザイン", meta: "チームプロジェクト 01", targetId: "projects", keywords: "pulmuone website redesign site team" },
       { title: "プルムウォン UI/UXリデザイン", meta: "チームプロジェクト 02", targetId: "projects", keywords: "pulmuone ui ux redesign figma team" },
+      { title: "NOVA — 多言語AIチャットボット", meta: "個人プロジェクト", targetId: "personal-projects", keywords: "nova personal ai chatbot react fastapi qwen" },
       { title: "Gallery", meta: "作業イメージ集", targetId: "gallery", keywords: "gallery images pictures portfolio" },
       { title: "Contact", meta: "連絡先とお問い合わせフォーム", targetId: "contact", keywords: "contact email phone message" },
     ],
@@ -1088,6 +1155,7 @@ if (window.gsap && window.ScrollTrigger && window.Flip) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+initNovaProjectMedia();
 initHorizontalSections();
 initFlipModal();
 initLotties();

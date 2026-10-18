@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="./assets/css/styles.css?v=language-dropdown-20260918">
+    <link rel="stylesheet" href="./assets/css/styles.css?v=nova-project-20261018">
   </head>
   <body>
     <a class="skip-link" href="#home">본문으로 이동</a>
@@ -38,6 +38,7 @@
           <li><a class="site-nav__link" href="#about">About</a></li>
           <li><a class="site-nav__link" href="#skills">Skills</a></li>
           <li><a class="site-nav__link" href="#projects">Projects</a></li>
+          <li><a class="site-nav__link" href="#personal-projects">Personal</a></li>
           <li><a class="site-nav__link" href="#gallery">Gallery</a></li>
           <li><a class="site-nav__link" href="#contact">Contact</a></li>
         </ul>
@@ -226,6 +227,73 @@
             </div>
           </article>
 
+        </div>
+      </section>
+
+      <section class="personal-section" id="personal-projects" data-nav-section="personal-projects" aria-labelledby="personal-projects-title">
+        <div class="section-container">
+          <div class="section-heading personal-section__heading">
+            <p class="section-heading__eyebrow section-heading__eyebrow--pill">SOLO WORK</p>
+            <h2 class="section-heading__title" id="personal-projects-title">PERSONAL PROJECTS</h2>
+            <p class="section-heading__description">기획부터 디자인, 개발과 배포까지<br>직접 완성한 개인 프로젝트입니다.</p>
+          </div>
+
+          <article class="personal-card nova-card section-card" aria-labelledby="nova-project-title">
+            <div class="personal-card__header">
+              <div class="personal-card__badges">
+                <span class="badge badge--green">Personal Project</span>
+                <span class="badge badge--muted">AI Chatbot</span>
+              </div>
+              <h3 id="nova-project-title">NOVA — 다국어 AI 챗봇</h3>
+              <p>여러 언어로 대화하고, 방문자가 내 포트폴리오를 물어볼 수 있는 AI 챗봇</p>
+            </div>
+
+            <figure class="personal-card__image" data-nova-thumbnail>
+              <figcaption>NOVA 챗봇 목업 준비 중</figcaption>
+            </figure>
+
+            <div class="personal-card__actions project-panel__actions--triple">
+              <a class="project-button project-button--dark project-button--wide" href="https://nova-chat-g5g4.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="NOVA 챗봇 체험하기, 새 탭에서 열림">챗봇 체험하기</a>
+              <a class="project-button project-button--light project-button--wide" href="./chatbot/prompt/NOVA%20AI%20활용%20기록서.md" target="_blank" rel="noopener noreferrer" aria-label="NOVA AI 활용 기록 보기, 새 탭에서 열림">AI 활용 기록 보기</a>
+              <a class="project-button project-button--light project-button--wide" href="https://github.com/unnyappy87/ai-chatbot" target="_blank" rel="noopener noreferrer" aria-label="NOVA GitHub 저장소 보기, 새 탭에서 열림">GitHub 보기</a>
+            </div>
+            <p class="nova-card__server-note">무료 서버를 사용해서 첫 접속은 최대 1분 걸릴 수 있어요.</p>
+
+            <ul class="spec-list personal-card__specs personal-card__specs--blue">
+              <li><span>구분</span><strong>개인 프로젝트</strong></li>
+              <li><span>제작 기간</span><strong>2026.10.01 – 2026.10.17</strong></li>
+              <li><span>기여도</span><strong>100%</strong></li>
+              <li><span>역할</span><strong>기획 · 디자인 · 프론트엔드 · 백엔드 · 배포</strong></li>
+              <li><span>Frontend</span><strong>React · Vanilla CSS</strong></li>
+              <li><span>Backend</span><strong>Python · FastAPI</strong></li>
+              <li><span>AI Model</span><strong>HuggingFace (Qwen3-8B)</strong></li>
+              <li><span>Deploy</span><strong>Render</strong></li>
+              <li><span>AI Tools</span><strong>Claude · Codex</strong></li>
+            </ul>
+
+            <div class="nova-card__details">
+              <section aria-labelledby="nova-description-title">
+                <h4 id="nova-description-title">프로젝트 설명</h4>
+                <p>React와 FastAPI로 직접 설계하고 구현한 다국어 AI 챗봇입니다. 실시간 스트리밍 응답, 음성 입력, 읽어주기, 답변 다시 생성 기능을 만들었고, 무료 AI 사용량을 아끼기 위해 요청 횟수 제한과 답변 저장 구조를 설계했습니다. 방문자가 제 프로젝트를 물어볼 수 있는 '포트폴리오 가이드' 모드를 차별점으로 넣었습니다.</p>
+              </section>
+              <section aria-labelledby="nova-features-title">
+                <h4 id="nova-features-title">주요 기능</h4>
+                <ul class="nova-card__feature-list">
+                  <li>실시간 스트리밍 응답</li>
+                  <li>음성 입력과 읽어주기</li>
+                  <li>답변 다시 생성</li>
+                  <li>포트폴리오 가이드 모드</li>
+                  <li>사용량 제한과 에너지 미터</li>
+                </ul>
+              </section>
+              <section aria-labelledby="nova-ai-title">
+                <h4 id="nova-ai-title">AI 활용</h4>
+                <p>Claude로 코드 작성과 오류 해결을, Codex로 GitHub 커밋·풀을 진행했고, 코드 일부 직접 입력, Render 배포, HuggingFace 토큰 발행은 직접 수행했습니다.</p>
+              </section>
+            </div>
+
+            <div class="nova-card__gallery" data-nova-gallery aria-label="NOVA 챗봇 목업 갤러리"></div>
+          </article>
         </div>
       </section>
 
@@ -435,6 +503,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js"></script>
-    <script src="./assets/js/main.js?v=language-dropdown-20260918"></script>
+    <script src="./assets/js/main.js?v=nova-project-20261018"></script>
   </body>
 </html>

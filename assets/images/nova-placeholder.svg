@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">NOVA 챗봇 목업 준비 중</title>
+  <desc id="description">NOVA 다국어 AI 챗봇을 나타내는 임시 화면</desc>
+  <rect width="1200" height="675" fill="#f7f7f8"/>
+  <rect x="180" y="80" width="840" height="515" rx="28" fill="#ffffff" stroke="#dfe3e8" stroke-width="4"/>
+  <rect x="220" y="120" width="760" height="64" rx="16" fill="#262626"/>
+  <circle cx="262" cy="152" r="14" fill="#6faa52"/>
+  <text x="295" y="164" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">NOVA</text>
+  <rect x="260" y="240" width="470" height="76" rx="24" fill="#eef4ff"/>
+  <rect x="470" y="350" width="470" height="76" rx="24" fill="#e8f3e3"/>
+  <rect x="260" y="490" width="680" height="54" rx="27" fill="#f1f3f5"/>
+  <text x="600" y="635" fill="#687386" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Chatbot mockup coming soon</text>
+</svg>
