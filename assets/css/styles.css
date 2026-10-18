@@ -1272,6 +1272,10 @@ button.button {
   white-space: nowrap;
 }
 
+.nova-card .nova-card__summary strong {
+  white-space: normal;
+}
+
 .nova-card__details {
   display: grid;
   gap: 20px;
@@ -1351,10 +1355,22 @@ button.button {
   line-height: 20px;
 }
 
-.nova-card:not(.is-flip-active) .personal-card__specs,
 .nova-card:not(.is-flip-active) .nova-card__details,
 .nova-card:not(.is-flip-active) .nova-card__gallery {
   display: none;
+}
+
+.nova-card:not(.is-flip-active) .personal-card__specs {
+  padding: 8px 0 0;
+}
+
+.nova-card:not(.is-flip-active) .personal-card__specs li {
+  display: none;
+}
+
+.nova-card:not(.is-flip-active) .personal-card__specs li:nth-child(-n + 3),
+.nova-card:not(.is-flip-active) .personal-card__specs .nova-card__summary {
+  display: grid;
 }
 
 .nova-card a:focus-visible {
