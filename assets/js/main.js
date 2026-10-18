@@ -77,8 +77,7 @@ function initNovaProjectMedia() {
 
   thumbnail.append(createImage(NOVA_PROJECT_MEDIA.images[0], 0, true));
 
-  NOVA_PROJECT_MEDIA.images.slice(1).forEach((media, galleryIndex) => {
-    const imageIndex = galleryIndex + 1;
+  NOVA_PROJECT_MEDIA.images.forEach((media, imageIndex) => {
     const figure = document.createElement("figure");
     const caption = document.createElement("figcaption");
 
