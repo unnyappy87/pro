@@ -1351,6 +1351,12 @@ button.button {
   line-height: 20px;
 }
 
+.nova-card:not(.is-flip-active) .personal-card__specs,
+.nova-card:not(.is-flip-active) .nova-card__details,
+.nova-card:not(.is-flip-active) .nova-card__gallery {
+  display: none;
+}
+
 .nova-card a:focus-visible {
   outline: 3px solid var(--color-highlight);
   outline-offset: 3px;
