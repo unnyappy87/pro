@@ -240,8 +240,8 @@ a {
 .site-nav__menu {
   display: flex;
   align-items: center;
-  gap: 39px;
-  margin: 0 0 0 97px;
+  gap: 32px;
+  margin: 0 0 0 60px;
   padding: 0;
   list-style: none;
 }
@@ -269,7 +269,8 @@ a {
 .site-nav__search {
   width: 18px;
   height: 18px;
-  margin-left: auto;
+  flex: 0 0 18px;
+  margin-left: 24px;
   border: 0;
   padding: 0;
   background: transparent;
