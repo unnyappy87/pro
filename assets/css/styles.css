@@ -1244,6 +1244,34 @@ button.button {
   text-align: center;
 }
 
+.nova-card .personal-card__actions {
+  align-items: center;
+  gap: 10px;
+}
+
+.nova-card .project-button--wide {
+  width: auto;
+  min-width: 144px;
+  padding: 0 20px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.nova-card .personal-card__specs li {
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 0;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.nova-card .personal-card__specs strong {
+  font-size: 15px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
 .nova-card__details {
   display: grid;
   gap: 20px;
@@ -2250,6 +2278,14 @@ body.is-frame-dimmed .gallery-section__grid figure:not(.is-flip-active) {
   .personal-card__specs li {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .nova-card .personal-card__specs li {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-card .personal-card__specs strong {
+    white-space: normal;
   }
 
   .nova-card__gallery {
