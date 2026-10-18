@@ -18,7 +18,24 @@ let pendingNavTarget = null;
 let pendingNavTimer = 0;
 
 const NOVA_PROJECT_MEDIA = {
-  images: [],
+  images: [
+    {
+      src: "./chatbot/img/chatbot.png",
+      alt: "노트북 목업에 표시된 NOVA 챗봇의 밝은 테마 오류 및 다시 시도 화면",
+    },
+    {
+      src: "./chatbot/img/chatbot1%20.png",
+      alt: "노트북 목업에 표시된 NOVA 챗봇의 밝은 테마 시작 화면",
+    },
+    {
+      src: "./chatbot/img/chatbot3.png",
+      alt: "노트북 목업에 표시된 NOVA 챗봇의 어두운 테마 오류 및 다시 시도 화면",
+    },
+    {
+      src: "./chatbot/img/chatbot2.png",
+      alt: "노트북 목업에 표시된 NOVA 챗봇의 어두운 테마 시작 화면",
+    },
+  ],
   placeholder: "./assets/images/nova-placeholder.svg",
 };
 
@@ -30,11 +47,11 @@ function initNovaProjectMedia() {
     return;
   }
 
-  const createImage = (src, index, isThumbnail = false) => {
+  const createImage = (media, index, isThumbnail = false) => {
     const image = document.createElement("img");
 
-    image.src = src;
-    image.alt = `NOVA 챗봇 목업 화면 ${index + 1}`;
+    image.src = media.src;
+    image.alt = media.alt || `NOVA 챗봇 목업 화면 ${index + 1}`;
     image.decoding = "async";
     if (!isThumbnail) {
       image.loading = "lazy";
@@ -60,12 +77,12 @@ function initNovaProjectMedia() {
 
   thumbnail.append(createImage(NOVA_PROJECT_MEDIA.images[0], 0, true));
 
-  NOVA_PROJECT_MEDIA.images.slice(1).forEach((src, galleryIndex) => {
+  NOVA_PROJECT_MEDIA.images.slice(1).forEach((media, galleryIndex) => {
     const imageIndex = galleryIndex + 1;
     const figure = document.createElement("figure");
     const caption = document.createElement("figcaption");
 
-    figure.append(createImage(src, imageIndex));
+    figure.append(createImage(media, imageIndex));
     caption.textContent = `NOVA 챗봇 목업 화면 ${imageIndex + 1}`;
     figure.append(caption);
     gallery.append(figure);
